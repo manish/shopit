@@ -2197,16 +2197,19 @@ namespace Cassini.ShopIt
 			public const int background_tab = 2130837555;
 			
 			// aapt resource value: 0x7f020034
-			public const int drawer_shadow_dark = 2130837556;
+			public const int drawer_bg = 2130837556;
 			
 			// aapt resource value: 0x7f020035
-			public const int drawer_shadow_light = 2130837557;
+			public const int drawer_shadow_dark = 2130837557;
 			
 			// aapt resource value: 0x7f020036
-			public const int ic_launcher = 2130837558;
+			public const int drawer_shadow_light = 2130837558;
 			
 			// aapt resource value: 0x7f020037
-			public const int ic_menu_refresh = 2130837559;
+			public const int ic_launcher = 2130837559;
+			
+			// aapt resource value: 0x7f020038
+			public const int ic_menu_refresh = 2130837560;
 			
 			static Drawable()
 			{
@@ -2272,14 +2275,17 @@ namespace Cassini.ShopIt
 			// aapt resource value: 0x7f07001e
 			public const int bold = 2131165214;
 			
+			// aapt resource value: 0x7f070044
+			public const int branding_image = 2131165252;
+			
 			// aapt resource value: 0x7f07002b
 			public const int checkbox = 2131165227;
 			
 			// aapt resource value: 0x7f070011
 			public const int collapseActionView = 2131165201;
 			
-			// aapt resource value: 0x7f07004d
-			public const int content_frame = 2131165261;
+			// aapt resource value: 0x7f070043
+			public const int content_frame = 2131165251;
 			
 			// aapt resource value: 0x7f070031
 			public const int decor_content_parent = 2131165233;
@@ -2293,8 +2299,8 @@ namespace Cassini.ShopIt
 			// aapt resource value: 0x7f070009
 			public const int disableHome = 2131165193;
 			
-			// aapt resource value: 0x7f07004c
-			public const int drawer_layout = 2131165260;
+			// aapt resource value: 0x7f070041
+			public const int drawer_layout = 2131165249;
 			
 			// aapt resource value: 0x7f070013
 			public const int dropdown = 2131165203;
@@ -2310,15 +2316,6 @@ namespace Cassini.ShopIt
 			
 			// aapt resource value: 0x7f07002a
 			public const int expanded_menu = 2131165226;
-			
-			// aapt resource value: 0x7f07004b
-			public const int friend_description = 2131165259;
-			
-			// aapt resource value: 0x7f07004a
-			public const int friend_image = 2131165258;
-			
-			// aapt resource value: 0x7f070041
-			public const int grid = 2131165249;
 			
 			// aapt resource value: 0x7f070019
 			public const int home = 2131165209;
@@ -2338,14 +2335,8 @@ namespace Cassini.ShopIt
 			// aapt resource value: 0x7f07001f
 			public const int italic = 2131165215;
 			
-			// aapt resource value: 0x7f070047
-			public const int item_image = 2131165255;
-			
-			// aapt resource value: 0x7f070048
-			public const int item_title = 2131165256;
-			
-			// aapt resource value: 0x7f07004e
-			public const int left_drawer = 2131165262;
+			// aapt resource value: 0x7f070045
+			public const int left_drawer = 2131165253;
 			
 			// aapt resource value: 0x7f070001
 			public const int listMode = 2131165185;
@@ -2353,8 +2344,8 @@ namespace Cassini.ShopIt
 			// aapt resource value: 0x7f070027
 			public const int list_item = 2131165223;
 			
-			// aapt resource value: 0x7f070050
-			public const int menu_refresh = 2131165264;
+			// aapt resource value: 0x7f070047
+			public const int menu_refresh = 2131165255;
 			
 			// aapt resource value: 0x7f07000b
 			public const int middle = 2131165195;
@@ -2367,15 +2358,6 @@ namespace Cassini.ShopIt
 			
 			// aapt resource value: 0x7f070000
 			public const int normal = 2131165184;
-			
-			// aapt resource value: 0x7f070046
-			public const int profile_description = 2131165254;
-			
-			// aapt resource value: 0x7f070044
-			public const int profile_image = 2131165252;
-			
-			// aapt resource value: 0x7f070045
-			public const int profile_name = 2131165253;
 			
 			// aapt resource value: 0x7f07001a
 			public const int progress_circular = 2131165210;
@@ -2437,26 +2419,20 @@ namespace Cassini.ShopIt
 			// aapt resource value: 0x7f070002
 			public const int tabMode = 2131165186;
 			
-			// aapt resource value: 0x7f07004f
-			public const int tab_title = 2131165263;
-			
-			// aapt resource value: 0x7f070042
-			public const int tabs = 2131165250;
+			// aapt resource value: 0x7f070046
+			public const int tab_title = 2131165254;
 			
 			// aapt resource value: 0x7f070029
 			public const int title = 2131165225;
 			
-			// aapt resource value: 0x7f070049
-			public const int toolbar = 2131165257;
+			// aapt resource value: 0x7f070042
+			public const int toolbar = 2131165250;
 			
 			// aapt resource value: 0x7f07001d
 			public const int up = 2131165213;
 			
 			// aapt resource value: 0x7f070004
 			public const int useLogo = 2131165188;
-			
-			// aapt resource value: 0x7f070043
-			public const int viewPager = 2131165251;
 			
 			// aapt resource value: 0x7f070010
 			public const int withText = 2131165200;
@@ -2566,40 +2542,19 @@ namespace Cassini.ShopIt
 			public const int abc_simple_dropdown_hint = 2130903062;
 			
 			// aapt resource value: 0x7f030017
-			public const int fragment_browse = 2130903063;
+			public const int item_menu = 2130903063;
 			
 			// aapt resource value: 0x7f030018
-			public const int fragment_friends = 2130903064;
+			public const int page_home_view = 2130903064;
 			
 			// aapt resource value: 0x7f030019
-			public const int fragment_friends_all = 2130903065;
+			public const int support_simple_spinner_dropdown_item = 2130903065;
 			
 			// aapt resource value: 0x7f03001a
-			public const int fragment_friends_recent = 2130903066;
+			public const int tab = 2130903066;
 			
 			// aapt resource value: 0x7f03001b
-			public const int fragment_profile = 2130903067;
-			
-			// aapt resource value: 0x7f03001c
-			public const int item_menu = 2130903068;
-			
-			// aapt resource value: 0x7f03001d
-			public const int item_monkey = 2130903069;
-			
-			// aapt resource value: 0x7f03001e
-			public const int page_friend = 2130903070;
-			
-			// aapt resource value: 0x7f03001f
-			public const int page_home_view = 2130903071;
-			
-			// aapt resource value: 0x7f030020
-			public const int support_simple_spinner_dropdown_item = 2130903072;
-			
-			// aapt resource value: 0x7f030021
-			public const int tab = 2130903073;
-			
-			// aapt resource value: 0x7f030022
-			public const int toolbar = 2130903074;
+			public const int toolbar = 2130903067;
 			
 			static Layout()
 			{

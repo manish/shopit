@@ -10,21 +10,21 @@ using Android.Support.V7.App;
 using Cassini.ShopIt;
 using V7 = Android.Support.V7.Widget;
 using Android.Widget;
+using NavDrawer.Helpers;
 
 namespace ShopIt.Activities
 {
 	[Activity (Label = "@string/app_name", MainLauncher = true, LaunchMode = LaunchMode.SingleTop, Icon = "@drawable/ic_launcher")]
 	public class HomeView : ActionBarActivity
 	{
-        
-		private MyActionBarDrawerToggle drawerToggle;
-		private string drawerTitle;
-		private string title;
+		DrawerHandler drawerToggle;
+		string drawerTitle;
+		string title;
 
-		private DrawerLayout drawerLayout;
-		private ListView drawerListView;
-		private static readonly string[] Sections = new[] {
-			"Browse", "Friends", "Profile"
+		DrawerLayout drawerLayout;
+		ListView drawerListView;
+		readonly string[] Sections = new[] {
+			"Shopping Bag", "Categories", "Recurring Items", "About"
 		};
 
 		protected override void OnCreate (Bundle savedInstanceState)
@@ -37,7 +37,6 @@ namespace ShopIt.Activities
 				SetSupportActionBar(toolbar);
 				SupportActionBar.SetDisplayHomeAsUpEnabled(true);
 				SupportActionBar.SetHomeButtonEnabled (true);
-
 			}
 
 			this.title = this.drawerTitle = this.Title;
@@ -45,6 +44,8 @@ namespace ShopIt.Activities
 			this.drawerLayout = this.FindViewById<DrawerLayout> (Resource.Id.drawer_layout);
 			this.drawerListView = this.FindViewById<ListView> (Resource.Id.left_drawer);
 
+			var branding_image = FindViewById<BrandingImage> (Resource.Id.branding_image);
+			branding_image.SetImageResource (Resource.Drawable.drawer_bg);
 
 			//Create Adapter for drawer List
 			this.drawerListView.Adapter = new ArrayAdapter<string> (this, Resource.Layout.item_menu, Sections);
@@ -58,19 +59,19 @@ namespace ShopIt.Activities
 
 
 			//DrawerToggle is the animation that happens with the indicator next to the actionbar
-			drawerToggle = new MyActionBarDrawerToggle (this, this.drawerLayout,
+			drawerToggle = new DrawerHandler (this, this.drawerLayout,
 				toolbar,
 				Resource.String.drawer_open,
 				Resource.String.drawer_close);
 
 			//Display the current fragments title and update the options menu
-			this.drawerToggle.DrawerClosed += (o, args) => {
+			this.drawerToggle.Closed += (o, args) => {
 				this.SupportActionBar.Title = this.title;
 				this.InvalidateOptionsMenu ();
 			};
 
 			//Display the drawer title and update the options menu
-			this.drawerToggle.DrawerOpened += (o, args) => {
+			this.drawerToggle.Opened += (o, args) => {
 				this.SupportActionBar.Title = this.drawerTitle;
 				this.InvalidateOptionsMenu ();
 			};
