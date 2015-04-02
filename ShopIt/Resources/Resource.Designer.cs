@@ -2630,9 +2630,6 @@ namespace Cassini.ShopIt
 		public partial class String
 		{
 			
-			// aapt resource value: 0x7f0a0011
-			public const int ApplicationName = 2131361809;
-			
 			// aapt resource value: 0x7f0a0010
 			public const int Hello = 2131361808;
 			
@@ -2683,6 +2680,9 @@ namespace Cassini.ShopIt
 			
 			// aapt resource value: 0x7f0a000f
 			public const int abc_toolbar_collapse_description = 2131361807;
+			
+			// aapt resource value: 0x7f0a0011
+			public const int app_name = 2131361809;
 			
 			// aapt resource value: 0x7f0a0013
 			public const int drawer_close = 2131361811;

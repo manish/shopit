@@ -4,16 +4,17 @@ using Android.Content.Res;
 using Android.OS;
 using Android.Support.V4.Widget;
 using Android.Views;
-using Android.Widget;
 
 using ShopIt.Helpers;
 using Android.Support.V7.App;
 using Cassini.ShopIt;
+using V7 = Android.Support.V7.Widget;
+using Android.Widget;
 
 namespace ShopIt.Activities
 {
-	[Activity (Label = "Home", MainLauncher = true, LaunchMode = LaunchMode.SingleTop, Icon = "@drawable/ic_launcher")]
-	public class HomeView : BaseActivity
+	[Activity (Label = "@string/app_name", MainLauncher = true, LaunchMode = LaunchMode.SingleTop, Icon = "@drawable/ic_launcher")]
+	public class HomeView : ActionBarActivity
 	{
         
 		private MyActionBarDrawerToggle drawerToggle;
@@ -26,15 +27,18 @@ namespace ShopIt.Activities
 			"Browse", "Friends", "Profile"
 		};
 
-		protected override int LayoutResource {
-			get {
-				return Resource.Layout.page_home_view;
-			}
-		}
-
 		protected override void OnCreate (Bundle savedInstanceState)
 		{
 			base.OnCreate (savedInstanceState);
+
+			SetContentView (Resource.Layout.page_home_view);
+			var toolbar = FindViewById<V7.Toolbar>(Resource.Id.toolbar);
+			if (toolbar != null) {
+				SetSupportActionBar(toolbar);
+				SupportActionBar.SetDisplayHomeAsUpEnabled(true);
+				SupportActionBar.SetHomeButtonEnabled (true);
+
+			}
 
 			this.title = this.drawerTitle = this.Title;
 
@@ -54,8 +58,8 @@ namespace ShopIt.Activities
 
 
 			//DrawerToggle is the animation that happens with the indicator next to the actionbar
-			this.drawerToggle = new MyActionBarDrawerToggle (this, this.drawerLayout,
-				this.Toolbar,
+			drawerToggle = new MyActionBarDrawerToggle (this, this.drawerLayout,
+				toolbar,
 				Resource.String.drawer_open,
 				Resource.String.drawer_close);
 
