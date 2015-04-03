@@ -102,7 +102,8 @@ namespace ShopIt.Activities
 			//when open don't show anything
 			for (int i = 0; i < menu.Size (); i++)
 				menu.GetItem (i).SetVisible (!drawerOpen);
-
+			
+			MenuInflater.Inflate (Resource.Menu.add, menu);
 			return base.OnPrepareOptionsMenu (menu);
 		}
 
@@ -122,6 +123,12 @@ namespace ShopIt.Activities
 		// true, then it has handled the app icon touch event
 		public override bool OnOptionsItemSelected (IMenuItem item)
 		{
+			switch (item.ItemId) {
+			case Resource.Id.menu_add:
+				Toast.MakeText (this, "Add clicked", ToastLength.Long).Show ();
+				break;
+			}
+
 			if (drawerToggle.OnOptionsItemSelected (item))
 				return true;
 
