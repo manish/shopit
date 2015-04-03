@@ -23,6 +23,7 @@ namespace ShopIt.Activities
 
 		DrawerLayout drawerLayout;
 		ListView drawerListView;
+		DrawerAdapter adapter;
 
 		protected override void OnCreate (Bundle savedInstanceState)
 		{
@@ -37,6 +38,7 @@ namespace ShopIt.Activities
 			}
 
 			title = drawerTitle = Title;
+			adapter = new DrawerAdapter (this);
 
 			drawerLayout = FindViewById<DrawerLayout> (Resource.Id.drawer_layout);
 			drawerListView = FindViewById<ListView> (Resource.Id.left_drawer);
@@ -45,7 +47,7 @@ namespace ShopIt.Activities
 			branding_image.SetImageResource (Resource.Drawable.drawer_bg);
 
 			//Create Adapter for drawer List
-			drawerListView.Adapter = new DrawerAdapter (this);
+			drawerListView.Adapter = adapter;
 
 			//Set click handler when item is selected
 			drawerListView.ItemClick += (sender, args) => ListItemClicked (args.Position);
@@ -81,31 +83,22 @@ namespace ShopIt.Activities
 
 		private void ListItemClicked (int position)
 		{
-			/*Android.Support.V4.App.Fragment fragment = null;
-			switch (position) {
-			case 0:
-				//fragment = new BrowseFragment ();
-				break;
-			case 1:
-				//fragment = new FriendsFragment ();
-				break;
-			case 2:
-				//fragment = new ProfileFragment ();
-				break;
-			}
+			Android.Support.V4.App.Fragment fragment = adapter [position].ItemFragment;
 
-			SupportFragmentManager.BeginTransaction ()
+			if (fragment != null) {
+				SupportFragmentManager.BeginTransaction ()
 				.Replace (Resource.Id.content_frame, fragment)
 				.Commit ();
+			}
 
-			this.drawerListView.SetItemChecked (position, true);
-			SupportActionBar.Title = this.title = Sections [position];
-			this.drawerLayout.CloseDrawers();*/
+			drawerListView.SetItemChecked (position, true);
+			SupportActionBar.Title = title = adapter [position].Name;
+			drawerLayout.CloseDrawers();
 		}
 
 		public override bool OnPrepareOptionsMenu (IMenu menu)
 		{
-			var drawerOpen = this.drawerLayout.IsDrawerOpen((int)GravityFlags.Left);
+			var drawerOpen = drawerLayout.IsDrawerOpen((int)GravityFlags.Left);
 			//when open don't show anything
 			for (int i = 0; i < menu.Size (); i++)
 				menu.GetItem (i).SetVisible (!drawerOpen);

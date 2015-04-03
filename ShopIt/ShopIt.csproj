@@ -71,6 +71,11 @@
     <Compile Include="Helpers\DrawerHandler.cs" />
     <Compile Include="Helpers\BrandingImage.cs" />
     <Compile Include="Adapters\DrawerAdapter.cs" />
+    <Compile Include="Fragments\ShoppingBagFragment.cs" />
+    <Compile Include="Adapters\ShoppingBagAdapter.cs" />
+    <Compile Include="Models\ShoppingItem.cs" />
+    <Compile Include="Models\ShoppingItemCategory.cs" />
+    <Compile Include="Models\ShoppingItemManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -564,6 +569,7 @@
     <AndroidResource Include="Resources\Drawable-xxhdpi\ic_view_list_white_36dp.png" />
     <AndroidResource Include="Resources\Drawable-xxhdpi\ic_view_list_white_48dp.png" />
     <AndroidResource Include="Resources\Layout\drawer_item_view.axml" />
+    <AndroidResource Include="Resources\Layout\shopping_item.axml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Properties\AndroidManifest.xml" />

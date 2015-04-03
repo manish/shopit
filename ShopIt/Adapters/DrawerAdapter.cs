@@ -1,4 +1,5 @@
 ﻿using System;
+using V4 = Android.Support.V4.App;
 using Android.Widget;
 using Android.App;
 using System.Collections.Generic;
@@ -10,13 +11,15 @@ namespace Cassini.ShopIt
 		public string Name { get; set; }
 
 		public int Icon { get; set; }
+
+		public V4.Fragment ItemFragment { get; set; }
 	}
 
 	public class DrawerAdapter : BaseAdapter<DrawerItem>
 	{
 		Activity context;
 		readonly List<DrawerItem> items = new List<DrawerItem> () {
-			new DrawerItem { Name = "Shopping Bag", Icon = Resource.Drawable.ic_shopping_cart_grey600_24dp},
+			new DrawerItem { Name = "Shopping Bag", Icon = Resource.Drawable.ic_shopping_cart_grey600_24dp, ItemFragment = new ShoppingBagFragment ()},
 			new DrawerItem { Name = "Recurring Items", Icon = Resource.Drawable.ic_autorenew_grey600_24dp},
 			new DrawerItem { Name = "Categories", Icon = Resource.Drawable.ic_view_list_grey600_24dp},
 			new DrawerItem { Name = "Favorites", Icon = Resource.Drawable.ic_grade_grey600_24dp},
