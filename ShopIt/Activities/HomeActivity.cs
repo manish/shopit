@@ -23,9 +23,6 @@ namespace ShopIt.Activities
 
 		DrawerLayout drawerLayout;
 		ListView drawerListView;
-		readonly string[] Sections = new[] {
-			"Shopping Bag", "Categories", "Recurring Items", "Favourites", "About"
-		};
 
 		protected override void OnCreate (Bundle savedInstanceState)
 		{
@@ -39,52 +36,47 @@ namespace ShopIt.Activities
 				SupportActionBar.SetHomeButtonEnabled (true);
 			}
 
-			this.title = this.drawerTitle = this.Title;
+			title = drawerTitle = Title;
 
-			this.drawerLayout = this.FindViewById<DrawerLayout> (Resource.Id.drawer_layout);
-			this.drawerListView = this.FindViewById<ListView> (Resource.Id.left_drawer);
+			drawerLayout = FindViewById<DrawerLayout> (Resource.Id.drawer_layout);
+			drawerListView = FindViewById<ListView> (Resource.Id.left_drawer);
 
 			var branding_image = FindViewById<BrandingImage> (Resource.Id.branding_image);
 			branding_image.SetImageResource (Resource.Drawable.drawer_bg);
 
 			//Create Adapter for drawer List
-			this.drawerListView.Adapter = new DrawerAdapter (this);
+			drawerListView.Adapter = new DrawerAdapter (this);
 
 			//Set click handler when item is selected
-			this.drawerListView.ItemClick += (sender, args) => ListItemClicked (args.Position);
+			drawerListView.ItemClick += (sender, args) => ListItemClicked (args.Position);
 
 			//Set Drawer Shadow
-			this.drawerLayout.SetDrawerShadow (Resource.Drawable.drawer_shadow_dark, (int)GravityFlags.Start);
-
-
+			drawerLayout.SetDrawerShadow (Resource.Drawable.drawer_shadow_dark, (int)GravityFlags.Start);
 
 			//DrawerToggle is the animation that happens with the indicator next to the actionbar
-			drawerToggle = new DrawerHandler (this, this.drawerLayout,
+			drawerToggle = new DrawerHandler (this, drawerLayout,
 				toolbar,
 				Resource.String.drawer_open,
 				Resource.String.drawer_close);
 
 			//Display the current fragments title and update the options menu
-			this.drawerToggle.Closed += (o, args) => {
-				this.SupportActionBar.Title = this.title;
-				this.InvalidateOptionsMenu ();
+			drawerToggle.Closed += (o, args) => {
+				SupportActionBar.Title = title;
+				InvalidateOptionsMenu ();
 			};
 
 			//Display the drawer title and update the options menu
-			this.drawerToggle.Opened += (o, args) => {
-				this.SupportActionBar.Title = this.drawerTitle;
-				this.InvalidateOptionsMenu ();
+			drawerToggle.Opened += (o, args) => {
+				SupportActionBar.Title = drawerTitle;
+				InvalidateOptionsMenu ();
 			};
 
 			//Set the drawer lister to be the toggle.
-			this.drawerLayout.SetDrawerListener (this.drawerToggle);
-
-            
+			drawerLayout.SetDrawerListener (this.drawerToggle);
 
 			//if first time you will want to go ahead and click first item.
-			if (savedInstanceState == null) {
+			if (savedInstanceState == null)
 				ListItemClicked (0);
-			}
 		}
 
 		private void ListItemClicked (int position)
@@ -113,12 +105,10 @@ namespace ShopIt.Activities
 
 		public override bool OnPrepareOptionsMenu (IMenu menu)
 		{
-
 			var drawerOpen = this.drawerLayout.IsDrawerOpen((int)GravityFlags.Left);
 			//when open don't show anything
 			for (int i = 0; i < menu.Size (); i++)
 				menu.GetItem (i).SetVisible (!drawerOpen);
-
 
 			return base.OnPrepareOptionsMenu (menu);
 		}
@@ -126,20 +116,20 @@ namespace ShopIt.Activities
 		protected override void OnPostCreate (Bundle savedInstanceState)
 		{
 			base.OnPostCreate (savedInstanceState);
-			this.drawerToggle.SyncState ();
+			drawerToggle.SyncState ();
 		}
 
 		public override void OnConfigurationChanged (Configuration newConfig)
 		{
 			base.OnConfigurationChanged (newConfig);
-			this.drawerToggle.OnConfigurationChanged (newConfig);
+			drawerToggle.OnConfigurationChanged (newConfig);
 		}
 
 		// Pass the event to ActionBarDrawerToggle, if it returns
 		// true, then it has handled the app icon touch event
 		public override bool OnOptionsItemSelected (IMenuItem item)
 		{
-			if (this.drawerToggle.OnOptionsItemSelected (item))
+			if (drawerToggle.OnOptionsItemSelected (item))
 				return true;
 
 			return base.OnOptionsItemSelected (item);
