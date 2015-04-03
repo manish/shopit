@@ -24,7 +24,7 @@ namespace ShopIt.Activities
 		DrawerLayout drawerLayout;
 		ListView drawerListView;
 		readonly string[] Sections = new[] {
-			"Shopping Bag", "Categories", "Recurring Items", "About"
+			"Shopping Bag", "Categories", "Recurring Items", "Favourites", "About"
 		};
 
 		protected override void OnCreate (Bundle savedInstanceState)
@@ -48,7 +48,7 @@ namespace ShopIt.Activities
 			branding_image.SetImageResource (Resource.Drawable.drawer_bg);
 
 			//Create Adapter for drawer List
-			this.drawerListView.Adapter = new ArrayAdapter<string> (this, Resource.Layout.item_menu, Sections);
+			this.drawerListView.Adapter = new DrawerAdapter (this);
 
 			//Set click handler when item is selected
 			this.drawerListView.ItemClick += (sender, args) => ListItemClicked (args.Position);

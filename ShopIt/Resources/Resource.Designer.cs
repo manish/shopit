@@ -2206,10 +2206,298 @@ namespace Cassini.ShopIt
 			public const int drawer_shadow_light = 2130837558;
 			
 			// aapt resource value: 0x7f020037
-			public const int ic_launcher = 2130837559;
+			public const int ic_alarm_add_black_18dp = 2130837559;
 			
 			// aapt resource value: 0x7f020038
-			public const int ic_menu_refresh = 2130837560;
+			public const int ic_alarm_add_black_24dp = 2130837560;
+			
+			// aapt resource value: 0x7f020039
+			public const int ic_alarm_add_black_36dp = 2130837561;
+			
+			// aapt resource value: 0x7f02003a
+			public const int ic_alarm_add_black_48dp = 2130837562;
+			
+			// aapt resource value: 0x7f02003b
+			public const int ic_alarm_add_grey600_18dp = 2130837563;
+			
+			// aapt resource value: 0x7f02003c
+			public const int ic_alarm_add_grey600_24dp = 2130837564;
+			
+			// aapt resource value: 0x7f02003d
+			public const int ic_alarm_add_grey600_36dp = 2130837565;
+			
+			// aapt resource value: 0x7f02003e
+			public const int ic_alarm_add_grey600_48dp = 2130837566;
+			
+			// aapt resource value: 0x7f02003f
+			public const int ic_alarm_add_white_18dp = 2130837567;
+			
+			// aapt resource value: 0x7f020040
+			public const int ic_alarm_add_white_24dp = 2130837568;
+			
+			// aapt resource value: 0x7f020041
+			public const int ic_alarm_add_white_36dp = 2130837569;
+			
+			// aapt resource value: 0x7f020042
+			public const int ic_alarm_add_white_48dp = 2130837570;
+			
+			// aapt resource value: 0x7f020043
+			public const int ic_alarm_black_18dp = 2130837571;
+			
+			// aapt resource value: 0x7f020044
+			public const int ic_alarm_black_24dp = 2130837572;
+			
+			// aapt resource value: 0x7f020045
+			public const int ic_alarm_black_36dp = 2130837573;
+			
+			// aapt resource value: 0x7f020046
+			public const int ic_alarm_black_48dp = 2130837574;
+			
+			// aapt resource value: 0x7f020047
+			public const int ic_alarm_grey600_18dp = 2130837575;
+			
+			// aapt resource value: 0x7f020048
+			public const int ic_alarm_grey600_24dp = 2130837576;
+			
+			// aapt resource value: 0x7f020049
+			public const int ic_alarm_grey600_36dp = 2130837577;
+			
+			// aapt resource value: 0x7f02004a
+			public const int ic_alarm_grey600_48dp = 2130837578;
+			
+			// aapt resource value: 0x7f02004b
+			public const int ic_alarm_off_black_18dp = 2130837579;
+			
+			// aapt resource value: 0x7f02004c
+			public const int ic_alarm_off_black_24dp = 2130837580;
+			
+			// aapt resource value: 0x7f02004d
+			public const int ic_alarm_off_black_36dp = 2130837581;
+			
+			// aapt resource value: 0x7f02004e
+			public const int ic_alarm_off_black_48dp = 2130837582;
+			
+			// aapt resource value: 0x7f02004f
+			public const int ic_alarm_off_grey600_18dp = 2130837583;
+			
+			// aapt resource value: 0x7f020050
+			public const int ic_alarm_off_grey600_24dp = 2130837584;
+			
+			// aapt resource value: 0x7f020051
+			public const int ic_alarm_off_grey600_36dp = 2130837585;
+			
+			// aapt resource value: 0x7f020052
+			public const int ic_alarm_off_grey600_48dp = 2130837586;
+			
+			// aapt resource value: 0x7f020053
+			public const int ic_alarm_off_white_18dp = 2130837587;
+			
+			// aapt resource value: 0x7f020054
+			public const int ic_alarm_off_white_24dp = 2130837588;
+			
+			// aapt resource value: 0x7f020055
+			public const int ic_alarm_off_white_36dp = 2130837589;
+			
+			// aapt resource value: 0x7f020056
+			public const int ic_alarm_off_white_48dp = 2130837590;
+			
+			// aapt resource value: 0x7f020057
+			public const int ic_alarm_on_black_18dp = 2130837591;
+			
+			// aapt resource value: 0x7f020058
+			public const int ic_alarm_on_black_24dp = 2130837592;
+			
+			// aapt resource value: 0x7f020059
+			public const int ic_alarm_on_black_36dp = 2130837593;
+			
+			// aapt resource value: 0x7f02005a
+			public const int ic_alarm_on_black_48dp = 2130837594;
+			
+			// aapt resource value: 0x7f02005b
+			public const int ic_alarm_on_grey600_18dp = 2130837595;
+			
+			// aapt resource value: 0x7f02005c
+			public const int ic_alarm_on_grey600_24dp = 2130837596;
+			
+			// aapt resource value: 0x7f02005d
+			public const int ic_alarm_on_grey600_36dp = 2130837597;
+			
+			// aapt resource value: 0x7f02005e
+			public const int ic_alarm_on_grey600_48dp = 2130837598;
+			
+			// aapt resource value: 0x7f02005f
+			public const int ic_alarm_on_white_18dp = 2130837599;
+			
+			// aapt resource value: 0x7f020060
+			public const int ic_alarm_on_white_24dp = 2130837600;
+			
+			// aapt resource value: 0x7f020061
+			public const int ic_alarm_on_white_36dp = 2130837601;
+			
+			// aapt resource value: 0x7f020062
+			public const int ic_alarm_on_white_48dp = 2130837602;
+			
+			// aapt resource value: 0x7f020063
+			public const int ic_alarm_white_18dp = 2130837603;
+			
+			// aapt resource value: 0x7f020064
+			public const int ic_alarm_white_24dp = 2130837604;
+			
+			// aapt resource value: 0x7f020065
+			public const int ic_alarm_white_36dp = 2130837605;
+			
+			// aapt resource value: 0x7f020066
+			public const int ic_alarm_white_48dp = 2130837606;
+			
+			// aapt resource value: 0x7f020067
+			public const int ic_autorenew_black_18dp = 2130837607;
+			
+			// aapt resource value: 0x7f020068
+			public const int ic_autorenew_black_24dp = 2130837608;
+			
+			// aapt resource value: 0x7f020069
+			public const int ic_autorenew_black_36dp = 2130837609;
+			
+			// aapt resource value: 0x7f02006a
+			public const int ic_autorenew_black_48dp = 2130837610;
+			
+			// aapt resource value: 0x7f02006b
+			public const int ic_autorenew_grey600_18dp = 2130837611;
+			
+			// aapt resource value: 0x7f02006c
+			public const int ic_autorenew_grey600_24dp = 2130837612;
+			
+			// aapt resource value: 0x7f02006d
+			public const int ic_autorenew_grey600_36dp = 2130837613;
+			
+			// aapt resource value: 0x7f02006e
+			public const int ic_autorenew_grey600_48dp = 2130837614;
+			
+			// aapt resource value: 0x7f02006f
+			public const int ic_autorenew_white_18dp = 2130837615;
+			
+			// aapt resource value: 0x7f020070
+			public const int ic_autorenew_white_24dp = 2130837616;
+			
+			// aapt resource value: 0x7f020071
+			public const int ic_autorenew_white_36dp = 2130837617;
+			
+			// aapt resource value: 0x7f020072
+			public const int ic_autorenew_white_48dp = 2130837618;
+			
+			// aapt resource value: 0x7f020073
+			public const int ic_grade_black_18dp = 2130837619;
+			
+			// aapt resource value: 0x7f020074
+			public const int ic_grade_black_24dp = 2130837620;
+			
+			// aapt resource value: 0x7f020075
+			public const int ic_grade_black_36dp = 2130837621;
+			
+			// aapt resource value: 0x7f020076
+			public const int ic_grade_black_48dp = 2130837622;
+			
+			// aapt resource value: 0x7f020077
+			public const int ic_grade_grey600_18dp = 2130837623;
+			
+			// aapt resource value: 0x7f020078
+			public const int ic_grade_grey600_24dp = 2130837624;
+			
+			// aapt resource value: 0x7f020079
+			public const int ic_grade_grey600_36dp = 2130837625;
+			
+			// aapt resource value: 0x7f02007a
+			public const int ic_grade_grey600_48dp = 2130837626;
+			
+			// aapt resource value: 0x7f02007b
+			public const int ic_grade_white_18dp = 2130837627;
+			
+			// aapt resource value: 0x7f02007c
+			public const int ic_grade_white_24dp = 2130837628;
+			
+			// aapt resource value: 0x7f02007d
+			public const int ic_grade_white_36dp = 2130837629;
+			
+			// aapt resource value: 0x7f02007e
+			public const int ic_grade_white_48dp = 2130837630;
+			
+			// aapt resource value: 0x7f02007f
+			public const int ic_launcher = 2130837631;
+			
+			// aapt resource value: 0x7f020080
+			public const int ic_menu_refresh = 2130837632;
+			
+			// aapt resource value: 0x7f020081
+			public const int ic_shopping_cart_black_18dp = 2130837633;
+			
+			// aapt resource value: 0x7f020082
+			public const int ic_shopping_cart_black_24dp = 2130837634;
+			
+			// aapt resource value: 0x7f020083
+			public const int ic_shopping_cart_black_36dp = 2130837635;
+			
+			// aapt resource value: 0x7f020084
+			public const int ic_shopping_cart_black_48dp = 2130837636;
+			
+			// aapt resource value: 0x7f020085
+			public const int ic_shopping_cart_grey600_18dp = 2130837637;
+			
+			// aapt resource value: 0x7f020086
+			public const int ic_shopping_cart_grey600_24dp = 2130837638;
+			
+			// aapt resource value: 0x7f020087
+			public const int ic_shopping_cart_grey600_36dp = 2130837639;
+			
+			// aapt resource value: 0x7f020088
+			public const int ic_shopping_cart_grey600_48dp = 2130837640;
+			
+			// aapt resource value: 0x7f020089
+			public const int ic_shopping_cart_white_18dp = 2130837641;
+			
+			// aapt resource value: 0x7f02008a
+			public const int ic_shopping_cart_white_24dp = 2130837642;
+			
+			// aapt resource value: 0x7f02008b
+			public const int ic_shopping_cart_white_36dp = 2130837643;
+			
+			// aapt resource value: 0x7f02008c
+			public const int ic_shopping_cart_white_48dp = 2130837644;
+			
+			// aapt resource value: 0x7f02008d
+			public const int ic_view_list_black_18dp = 2130837645;
+			
+			// aapt resource value: 0x7f02008e
+			public const int ic_view_list_black_24dp = 2130837646;
+			
+			// aapt resource value: 0x7f02008f
+			public const int ic_view_list_black_36dp = 2130837647;
+			
+			// aapt resource value: 0x7f020090
+			public const int ic_view_list_black_48dp = 2130837648;
+			
+			// aapt resource value: 0x7f020091
+			public const int ic_view_list_grey600_18dp = 2130837649;
+			
+			// aapt resource value: 0x7f020092
+			public const int ic_view_list_grey600_24dp = 2130837650;
+			
+			// aapt resource value: 0x7f020093
+			public const int ic_view_list_grey600_36dp = 2130837651;
+			
+			// aapt resource value: 0x7f020094
+			public const int ic_view_list_grey600_48dp = 2130837652;
+			
+			// aapt resource value: 0x7f020095
+			public const int ic_view_list_white_18dp = 2130837653;
+			
+			// aapt resource value: 0x7f020096
+			public const int ic_view_list_white_24dp = 2130837654;
+			
+			// aapt resource value: 0x7f020097
+			public const int ic_view_list_white_36dp = 2130837655;
+			
+			// aapt resource value: 0x7f020098
+			public const int ic_view_list_white_48dp = 2130837656;
 			
 			static Drawable()
 			{
@@ -2275,8 +2563,8 @@ namespace Cassini.ShopIt
 			// aapt resource value: 0x7f07001e
 			public const int bold = 2131165214;
 			
-			// aapt resource value: 0x7f070044
-			public const int branding_image = 2131165252;
+			// aapt resource value: 0x7f070047
+			public const int branding_image = 2131165255;
 			
 			// aapt resource value: 0x7f07002b
 			public const int checkbox = 2131165227;
@@ -2284,8 +2572,8 @@ namespace Cassini.ShopIt
 			// aapt resource value: 0x7f070011
 			public const int collapseActionView = 2131165201;
 			
-			// aapt resource value: 0x7f070043
-			public const int content_frame = 2131165251;
+			// aapt resource value: 0x7f070046
+			public const int content_frame = 2131165254;
 			
 			// aapt resource value: 0x7f070031
 			public const int decor_content_parent = 2131165233;
@@ -2299,8 +2587,14 @@ namespace Cassini.ShopIt
 			// aapt resource value: 0x7f070009
 			public const int disableHome = 2131165193;
 			
-			// aapt resource value: 0x7f070041
-			public const int drawer_layout = 2131165249;
+			// aapt resource value: 0x7f070042
+			public const int drawer_item_icon = 2131165250;
+			
+			// aapt resource value: 0x7f070043
+			public const int drawer_item_name = 2131165251;
+			
+			// aapt resource value: 0x7f070044
+			public const int drawer_layout = 2131165252;
 			
 			// aapt resource value: 0x7f070013
 			public const int dropdown = 2131165203;
@@ -2335,8 +2629,11 @@ namespace Cassini.ShopIt
 			// aapt resource value: 0x7f07001f
 			public const int italic = 2131165215;
 			
-			// aapt resource value: 0x7f070045
-			public const int left_drawer = 2131165253;
+			// aapt resource value: 0x7f070048
+			public const int left_drawer = 2131165256;
+			
+			// aapt resource value: 0x7f070041
+			public const int linearLayout1 = 2131165249;
 			
 			// aapt resource value: 0x7f070001
 			public const int listMode = 2131165185;
@@ -2344,8 +2641,8 @@ namespace Cassini.ShopIt
 			// aapt resource value: 0x7f070027
 			public const int list_item = 2131165223;
 			
-			// aapt resource value: 0x7f070047
-			public const int menu_refresh = 2131165255;
+			// aapt resource value: 0x7f07004a
+			public const int menu_refresh = 2131165258;
 			
 			// aapt resource value: 0x7f07000b
 			public const int middle = 2131165195;
@@ -2419,14 +2716,14 @@ namespace Cassini.ShopIt
 			// aapt resource value: 0x7f070002
 			public const int tabMode = 2131165186;
 			
-			// aapt resource value: 0x7f070046
-			public const int tab_title = 2131165254;
+			// aapt resource value: 0x7f070049
+			public const int tab_title = 2131165257;
 			
 			// aapt resource value: 0x7f070029
 			public const int title = 2131165225;
 			
-			// aapt resource value: 0x7f070042
-			public const int toolbar = 2131165250;
+			// aapt resource value: 0x7f070045
+			public const int toolbar = 2131165253;
 			
 			// aapt resource value: 0x7f07001d
 			public const int up = 2131165213;
@@ -2542,19 +2839,22 @@ namespace Cassini.ShopIt
 			public const int abc_simple_dropdown_hint = 2130903062;
 			
 			// aapt resource value: 0x7f030017
-			public const int item_menu = 2130903063;
+			public const int drawer_item_view = 2130903063;
 			
 			// aapt resource value: 0x7f030018
-			public const int page_home_view = 2130903064;
+			public const int item_menu = 2130903064;
 			
 			// aapt resource value: 0x7f030019
-			public const int support_simple_spinner_dropdown_item = 2130903065;
+			public const int page_home_view = 2130903065;
 			
 			// aapt resource value: 0x7f03001a
-			public const int tab = 2130903066;
+			public const int support_simple_spinner_dropdown_item = 2130903066;
 			
 			// aapt resource value: 0x7f03001b
-			public const int toolbar = 2130903067;
+			public const int tab = 2130903067;
+			
+			// aapt resource value: 0x7f03001c
+			public const int toolbar = 2130903068;
 			
 			static Layout()
 			{
