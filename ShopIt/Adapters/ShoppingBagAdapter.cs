@@ -1,10 +1,11 @@
 ﻿using System;
 using Android.Widget;
 using Android.App;
+using Android.Views;
 
 namespace Cassini.ShopIt
 {
-	public class ShoppingBagAdapter : BaseAdapter<ShoppingItem>
+	public class ShoppingBagAdapter : BaseAdapter<ShoppingItem>, View.IOnClickListener
 	{
 		Activity context;
 
@@ -20,7 +21,7 @@ namespace Cassini.ShopIt
 			return position;
 		}
 
-		public override Android.Views.View GetView (int position, Android.Views.View convertView, Android.Views.ViewGroup parent)
+		public override View GetView (int position, View convertView, ViewGroup parent)
 		{
 			var view = convertView;
 			var viewHolder = view != null ? view.Tag as ShoppingItemViewHolder : null;
@@ -38,8 +39,11 @@ namespace Cassini.ShopIt
 			var item = this [position];
 
 			viewHolder.Title.Text = item.Title;
-			viewHolder.Favorite.Visibility = item.Favorite ? Android.Views.ViewStates.Visible : Android.Views.ViewStates.Invisible;
-			viewHolder.Recurring.Visibility = item.Recurring != null ? Android.Views.ViewStates.Visible : Android.Views.ViewStates.Invisible;
+			viewHolder.Favorite.Visibility = item.Favorite ? ViewStates.Visible : ViewStates.Invisible;
+			viewHolder.Recurring.Visibility = item.Recurring != null ? ViewStates.Visible :ViewStates.Invisible;
+
+			viewHolder.Favorite.SetOnClickListener (this);
+			viewHolder.Favorite.SetOnClickListener (this);
 			return view;
 		}
 
@@ -56,6 +60,11 @@ namespace Cassini.ShopIt
 		}
 
 		#endregion
+
+		public void OnClick (View v)
+		{
+			
+		}
 	}
 
 	class ShoppingItemViewHolder : Java.Lang.Object

@@ -22,7 +22,7 @@ namespace Cassini.ShopIt
 			new DrawerItem { Name = "Shopping Bag", Icon = Resource.Drawable.ic_shopping_cart_grey600_24dp, ItemFragment = new ShoppingBagFragment ()},
 			new DrawerItem { Name = "Recurring Items", Icon = Resource.Drawable.ic_autorenew_grey600_24dp},
 			new DrawerItem { Name = "Categories", Icon = Resource.Drawable.ic_view_list_grey600_24dp},
-			new DrawerItem { Name = "Favorites", Icon = Resource.Drawable.ic_grade_grey600_24dp},
+			new DrawerItem { Name = "Favorites", Icon = Resource.Drawable.ic_favorite_grey600_24dp},
 			new DrawerItem { Name = "Reminders", Icon = Resource.Drawable.ic_alarm_on_grey600_24dp}
 		};
 
