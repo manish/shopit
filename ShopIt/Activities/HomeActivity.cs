@@ -11,8 +11,9 @@ using Cassini.ShopIt;
 using V7 = Android.Support.V7.Widget;
 using Android.Widget;
 using NavDrawer.Helpers;
+using Android.Content;
 
-namespace ShopIt.Activities
+namespace Cassini.ShopIt
 {
 	[Activity (Label = "@string/app_name", MainLauncher = true, LaunchMode = LaunchMode.SingleTop, Icon = "@drawable/ic_launcher")]
 	public class HomeView : ActionBarActivity
@@ -125,7 +126,8 @@ namespace ShopIt.Activities
 		{
 			switch (item.ItemId) {
 			case Resource.Id.menu_add:
-				Toast.MakeText (this, "Add clicked", ToastLength.Long).Show ();
+				var stopActivity = new Intent (this, typeof (NewItemActivity));
+				StartActivity (stopActivity);
 				break;
 			}
 

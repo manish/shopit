@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 
 namespace Cassini.ShopIt
 {
@@ -8,7 +9,11 @@ namespace Cassini.ShopIt
 		{
 		}
 
-		public string Category { get; set; }
+		public int Id { get; set; }
+
+		public string Name { get; set; }
+
+		public Color Color { get; set; }
 	}
 }
 

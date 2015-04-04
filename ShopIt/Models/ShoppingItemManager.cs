@@ -15,6 +15,12 @@ namespace Cassini.ShopIt
 			items.Add (new ShoppingItem { Title = "XBox 360 Controller", Favorite = true });
 		}
 
+		public event EventHandler<ShoppingItem> Added;
+
+		public event EventHandler<ShoppingItem> Removed;
+
+		public event EventHandler<ShoppingItem> Changed;
+
 		public static ShoppingItemManager Instance
 		{
 			get {
@@ -34,6 +40,35 @@ namespace Cassini.ShopIt
 		public ShoppingItem ItemAt (int position)
 		{
 			return items [position];
+		}
+
+		public void Add (ShoppingItem item)
+		{
+			items.Add (item);
+			OnAdded (item);
+		}
+
+		void OnAdded (ShoppingItem item)
+		{
+			var handler = Added;
+			if (handler != null)
+				handler (this, item);
+			OnChanged (item);
+		}
+
+		void OnRemoved (ShoppingItem item)
+		{
+			var handler = Removed;
+			if (handler != null)
+				handler (this, item);
+			OnChanged (item);
+		}
+
+		void OnChanged (ShoppingItem item)
+		{
+			var handler = Changed;
+			if (handler != null)
+				handler (this, item);
 		}
 	}
 }

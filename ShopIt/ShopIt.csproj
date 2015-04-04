@@ -76,6 +76,8 @@
     <Compile Include="Models\ShoppingItem.cs" />
     <Compile Include="Models\ShoppingItemCategory.cs" />
     <Compile Include="Models\ShoppingItemManager.cs" />
+    <Compile Include="Activities\NewItemActivity.cs" />
+    <Compile Include="Models\ShoppingItemCategoryManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -683,6 +685,13 @@
     <AndroidResource Include="Resources\Drawable-hdpi\ic_favorite_white_24dp.png" />
     <AndroidResource Include="Resources\Drawable-hdpi\ic_favorite_white_36dp.png" />
     <AndroidResource Include="Resources\Drawable-hdpi\ic_favorite_white_48dp.png" />
+    <AndroidResource Include="Resources\Layout\new_item.axml" />
+    <AndroidResource Include="Resources\Drawable-hdpi\ic_done_white_24dp.png" />
+    <AndroidResource Include="Resources\Drawable-mdpi\ic_done_white_24dp.png" />
+    <AndroidResource Include="Resources\Drawable-xhdpi\ic_done_white_24dp.png" />
+    <AndroidResource Include="Resources\Drawable-xxhdpi\ic_done_white_24dp.png" />
+    <AndroidResource Include="Resources\Drawable-xxxhdpi\ic_done_white_24dp.png" />
+    <AndroidResource Include="Resources\Menu\done.xml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Properties\AndroidManifest.xml" />
