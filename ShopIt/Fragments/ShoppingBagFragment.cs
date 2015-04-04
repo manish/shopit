@@ -54,6 +54,12 @@ namespace Cassini.ShopIt
 
 		public void OnItemClick (AdapterView parent, View view, int position, long id)
 		{
+			var tag = view.Tag as ShoppingItemViewHolder;
+
+			var editItemActivity = new Intent (Activity, typeof (NewItemActivity));
+			editItemActivity.PutExtra ("title", "Edit Item");
+			editItemActivity.PutExtra ("id", tag.Id);
+			StartActivity (editItemActivity);
 		}
 	}
 }

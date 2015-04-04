@@ -21,10 +21,22 @@ namespace Cassini.ShopIt
 	{
 		EditText newItemEntry;
 		IMenuItem okButton;
+		ShoppingItem itemBeingEdited;
+
+		Switch dueSwitch;
+		TextView dueDateText;
+		TextView dueTimeText;
 
 		protected override void OnCreate (Bundle bundle)
 		{
 			base.OnCreate (bundle);
+
+
+			Title = Intent.GetStringExtra ("title") ?? Title;
+			var id = Intent.GetIntExtra ("id", default (int));
+			if (id != default (int))
+				itemBeingEdited = ShoppingItemManager.Instance.Items.FirstOrDefault (x => x.Id == id);
+
 
 			// Create your application here
 			SetContentView (Resource.Layout.new_item);
@@ -39,8 +51,10 @@ namespace Cassini.ShopIt
 			newItemEntry.ImeOptions = Android.Views.InputMethods.ImeAction.Done;
 			newItemEntry.EditorAction += (sender, e) => {
 				if (e.ActionId == Android.Views.InputMethods.ImeAction.Done)
-					AddItem ();
+					DoneItem ();
 			};
+			if (itemBeingEdited != null)
+				newItemEntry.Text = itemBeingEdited.Title;
 
 			var categoriesLayout = FindViewById<LinearLayout> (Resource.Id.existing_categories);
 			foreach (var category in ShoppingItemCategoryManager.Instance.Items) {
@@ -48,11 +62,66 @@ namespace Cassini.ShopIt
 				categoryTextView.TextSize = 14;
 				categoryTextView.SetTextColor (GetTextColor (false));
 				categoryTextView.SetPadding (6, 3, 6, 3);
+				categoryTextView.Gravity = GravityFlags.CenterHorizontal | GravityFlags.CenterVertical;
 				categoryTextView.SetBackgroundColor (GetBackGroundColor (category.Color, false));
 				categoryTextView.Text = categoryTextView.TextOff = categoryTextView.TextOn = category.Name;
 				categoryTextView.SetOnClickListener (this);
 				categoriesLayout.AddView (categoryTextView);
 			}
+
+			HandleItemDueSection ();
+
+			var recurringSwitch = FindViewById<Switch> (Resource.Id.recurring_switch);
+
+			var dueLayout = FindViewById<RelativeLayout> (Resource.Id.due_item_layout);
+			if (itemBeingEdited != null) {
+				recurringSwitch.Checked = itemBeingEdited.Recurring != null;
+			}
+		}
+
+		void HandleItemDueSection ()
+		{
+			dueSwitch = FindViewById<Switch> (Resource.Id.due_date_switch);
+			var dueLayout = FindViewById<RelativeLayout> (Resource.Id.due_item_layout);
+
+			dueSwitch.CheckedChange += (sender, e) => dueLayout.Visibility = e.IsChecked ? ViewStates.Visible : ViewStates.Gone;
+
+			var dueDate = itemBeingEdited != null && itemBeingEdited.DueDate != null ? itemBeingEdited.DueDate.Value : DateTime.Now;
+
+			dueDateText = FindViewById<TextView> (Resource.Id.due_date);
+			dueDateText.Text = dueDate.ToLongDateString ();
+			dueDateText.Tag = new TagItem<DateTime> { Item = dueDate };
+			dueDateText.Touch += (sender, e) => {
+				if (e.Event.Action == MotionEventActions.Down) {
+					var now = (dueDateText.Tag as TagItem<DateTime>).Item;
+					new DatePickerDialog (this,
+						(o, args) => {
+							dueDateText.Text = args.Date.ToLongDateString ();
+							(dueDateText.Tag as TagItem<DateTime>).Item = args.Date;
+						}, 
+						now.Year, now.Month-1, now.Day).Show ();
+				}
+			};
+
+			dueTimeText = FindViewById<TextView> (Resource.Id.due_time);
+			dueTimeText.Text = dueDate.ToShortTimeString ();
+			dueTimeText.Tag =  new TagItem<DateTime> { Item = dueDate };
+			dueTimeText.Touch += (sender, e) => {
+				if (e.Event.Action == MotionEventActions.Down) {
+					var now = (dueTimeText.Tag as TagItem<DateTime>).Item;
+					var timepicker = new TimePickerDialog (this,
+						(o, args) => {
+							var selectedDateTime = new DateTime (now.Year, now.Month, now.Day, args.HourOfDay, args.Minute, 0);
+							dueTimeText.Text = selectedDateTime.ToShortTimeString ();
+							(dueTimeText.Tag as TagItem<DateTime>).Item = selectedDateTime;
+						},
+						now.Hour, now.Minute, false);
+					timepicker.Show ();
+				}
+			};
+
+			if (itemBeingEdited != null)
+				dueSwitch.Checked = itemBeingEdited.DueDate != null;
 		}
 
 		public override bool OnPrepareOptionsMenu (IMenu menu)
@@ -61,8 +130,9 @@ namespace Cassini.ShopIt
 			okButton = menu.FindItem (Resource.Id.menu_done);
 			okButton.SetEnabled (false);
 
-			newItemEntry.TextChanged += (sender, e) => okButton.SetEnabled (!string.IsNullOrEmpty (newItemEntry.Text));
+			newItemEntry.TextChanged += (sender, e) => HandleOkButtonEnable ();
 
+			HandleOkButtonEnable ();
 			return base.OnPrepareOptionsMenu (menu);
 		}
 
@@ -70,7 +140,7 @@ namespace Cassini.ShopIt
 		{
 			switch (item.ItemId) {
 			case Resource.Id.menu_done:
-				AddItem ();
+				DoneItem ();
 				break;
 			default:
 				Discard ();
@@ -79,10 +149,27 @@ namespace Cassini.ShopIt
 			return base.OnOptionsItemSelected (item);
 		}
 
-		void AddItem ()
+		void HandleOkButtonEnable ()
+		{
+			okButton.SetEnabled (!string.IsNullOrEmpty (newItemEntry.Text));
+		}
+
+		void DoneItem ()
 		{
 			if (okButton.IsEnabled) {
-				ShoppingItemManager.Instance.Add (new ShoppingItem { Title = newItemEntry.Text });
+				var item = itemBeingEdited ?? new ShoppingItem ();
+				item.Title = newItemEntry.Text;
+
+				if (dueSwitch.Checked) {
+					var dueDate = (dueDateText.Tag as TagItem<DateTime>).Item;
+					var dueTime = (dueTimeText.Tag as TagItem<DateTime>).Item;
+					item.DueDate = new DateTime (dueDate.Year, dueDate.Month, dueDate.Day, dueTime.Hour, dueTime.Minute, 0);
+				} else
+					item.DueDate = null;
+
+				if (itemBeingEdited == null)
+					ShoppingItemManager.Instance.Add (item);
+				
 				StartActivity (typeof(HomeView));
 			}
 		}

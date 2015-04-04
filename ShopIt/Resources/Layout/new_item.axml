@@ -27,7 +27,8 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="12dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="6dp"
         android:id="@+id/add_item_category_layout">
         <TextView
             android:text="Categories"
@@ -57,12 +58,95 @@
         android:minWidth="25px"
         android:minHeight="25px"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginRight="6dp"
         android:id="@+id/existing_categories"
-        android:layout_gravity="center" />
+        android:layout_gravity="center_horizontal" />
     <Space
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/add_item_second_space" />
+    <RelativeLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="6dp"
+        android:id="@+id/due_date_layout">
+        <TextView
+            android:text="Due"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/due_date_text"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="8dp"
+            android:textAllCaps="true"
+            android:textStyle="bold"
+            android:textColor="#ff000000" />
+        <Switch
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/due_date_switch"
+            android:clickable="true"
+            android:visibility="visible"
+            android:layout_marginTop="3dp"
+            android:layout_marginBottom="3dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="6dp" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/due_item_layout"
+        android:visibility="gone">
+        <TextView
+            android:text="April 4, 2015"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/due_date"
+            android:layout_marginLeft="12dp" />
+        <TextView
+            android:text="3:00 PM"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/due_time"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="12dp" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="6dp"
+        android:id="@+id/recurring_layout">
+        <TextView
+            android:text="Recurring"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/recurring_text"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="8dp"
+            android:textAllCaps="true"
+            android:textStyle="bold"
+            android:textColor="#ff000000" />
+        <Switch
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/recurring_switch"
+            android:clickable="true"
+            android:visibility="visible"
+            android:layout_marginTop="3dp"
+            android:layout_marginBottom="3dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="6dp" />
+    </RelativeLayout>
 </LinearLayout>

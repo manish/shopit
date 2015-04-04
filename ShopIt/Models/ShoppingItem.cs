@@ -8,7 +8,13 @@ namespace Cassini.ShopIt
 		public ShoppingItem ()
 		{
 			Categories = new List<ShoppingItemCategory> ();
-			Id = DateTime.Now.GetHashCode ();
+			Created = DateTime.Now;
+			Id = Created.GetHashCode ();
+		}
+
+		public void Save ()
+		{
+			LastModified = DateTime.Now;
 		}
 
 		public int Id { get; private set; }
@@ -21,11 +27,9 @@ namespace Cassini.ShopIt
 
 		public DateTime? DueDate { get; set; }
 
-		public DateTime Created { get; set; }
+		public DateTime Created { get; private set; }
 
-		public DateTime LastModified { get; set; }
-
-		public DateTime SortTimestamp { get; set; }
+		public DateTime LastModified { get; private set; }
 
 		public RecurringItem Recurring { get; set; }
 	}
