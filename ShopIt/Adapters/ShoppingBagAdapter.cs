@@ -39,7 +39,8 @@ namespace Cassini.ShopIt
 				viewHolder = new ShoppingItemViewHolder {
 					Title = view.FindViewById<TextView> (Resource.Id.shopping_item_title),
 					Favorite = view.FindViewById<ImageView> (Resource.Id.item_fav_icon),
-					Recurring = view.FindViewById<ImageView> (Resource.Id.item_alarm_icon),
+					Due = view.FindViewById<ImageView> (Resource.Id.item_due_icon),
+					DueText = view.FindViewById<TextView> (Resource.Id.item_due_text),
 				};
 				view.Tag = viewHolder;
 			}
@@ -48,10 +49,15 @@ namespace Cassini.ShopIt
 
 			viewHolder.Id = item.Id;
 			viewHolder.Title.Text = item.Title;
-			viewHolder.Favorite.Visibility = item.Favorite ? ViewStates.Visible : ViewStates.Invisible;
-			viewHolder.Recurring.Visibility = item.Recurring != null ? ViewStates.Visible :ViewStates.Invisible;
 
-			viewHolder.Favorite.SetOnClickListener (this);
+			viewHolder.Favorite.SetImageResource (item.Favorite ?
+				Resource.Drawable.ic_favorite_black_18dp :  Resource.Drawable.ic_favorite_outline_grey600_18dp);
+
+			viewHolder.Due.Visibility = item.DueDate != null ? ViewStates.Visible :ViewStates.Gone;
+			viewHolder.DueText.Visibility = item.DueDate != null ? ViewStates.Visible :ViewStates.Gone;
+			viewHolder.DueText.Text = item.DueDate != null ? item.DueDate.Value.ToHumanReadable () : string.Empty;
+
+			viewHolder.Favorite.Tag = new TagItem<ShoppingItem> { Item = item };
 			viewHolder.Favorite.SetOnClickListener (this);
 			return view;
 		}
@@ -72,7 +78,12 @@ namespace Cassini.ShopIt
 
 		public void OnClick (View v)
 		{
-			
+			var image = v as ImageView;
+			if (image.Id == Resource.Id.item_fav_icon) {
+				var shoppingItem = (image.Tag as TagItem<ShoppingItem>).Item;
+				shoppingItem.Favorite = !shoppingItem.Favorite;
+				NotifyDataSetChanged ();
+			}
 		}
 	}
 
@@ -84,7 +95,9 @@ namespace Cassini.ShopIt
 
 		public ImageView Favorite { get; set; }
 
-		public ImageView Recurring { get; set; }
+		public ImageView Due { get; set; }
+
+		public TextView DueText { get; set; }
 	}
 }
 

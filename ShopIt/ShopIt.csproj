@@ -79,6 +79,7 @@
     <Compile Include="Activities\NewItemActivity.cs" />
     <Compile Include="Models\ShoppingItemCategoryManager.cs" />
     <Compile Include="Models\TagItem.cs" />
+    <Compile Include="Models\HumanReadable.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />

@@ -2765,7 +2765,10 @@ namespace Cassini.ShopIt
 			public const int italic = 2131165215;
 			
 			// aapt resource value: 0x7f07005d
-			public const int item_alarm_icon = 2131165277;
+			public const int item_due_icon = 2131165277;
+			
+			// aapt resource value: 0x7f07005e
+			public const int item_due_text = 2131165278;
 			
 			// aapt resource value: 0x7f07005c
 			public const int item_fav_icon = 2131165276;
@@ -2782,14 +2785,14 @@ namespace Cassini.ShopIt
 			// aapt resource value: 0x7f070027
 			public const int list_item = 2131165223;
 			
-			// aapt resource value: 0x7f07005f
-			public const int menu_add = 2131165279;
-			
 			// aapt resource value: 0x7f070060
-			public const int menu_done = 2131165280;
+			public const int menu_add = 2131165280;
 			
 			// aapt resource value: 0x7f070061
-			public const int menu_refresh = 2131165281;
+			public const int menu_done = 2131165281;
+			
+			// aapt resource value: 0x7f070062
+			public const int menu_refresh = 2131165282;
 			
 			// aapt resource value: 0x7f07000b
 			public const int middle = 2131165195;
@@ -2884,8 +2887,8 @@ namespace Cassini.ShopIt
 			// aapt resource value: 0x7f070002
 			public const int tabMode = 2131165186;
 			
-			// aapt resource value: 0x7f07005e
-			public const int tab_title = 2131165278;
+			// aapt resource value: 0x7f07005f
+			public const int tab_title = 2131165279;
 			
 			// aapt resource value: 0x7f070029
 			public const int title = 2131165225;
