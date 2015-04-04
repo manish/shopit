@@ -2,6 +2,7 @@
 using Android.Widget;
 using Android.App;
 using Android.Views;
+using System.Linq;
 
 namespace Cassini.ShopIt
 {
@@ -12,6 +13,13 @@ namespace Cassini.ShopIt
 		public ShoppingBagAdapter (Activity context)
 		{
 			this.context = context;
+			ShoppingItemManager.Instance.Changed += (sender, e) => NotifyDataSetChanged ();
+		}
+
+		public void Remove (View view)
+		{
+			var tag = view.Tag as ShoppingItemViewHolder;
+			ShoppingItemManager.Instance.Remove (tag.Id);
 		}
 
 		#region implemented abstract members of BaseAdapter
@@ -38,6 +46,7 @@ namespace Cassini.ShopIt
 			viewHolder = view.Tag as ShoppingItemViewHolder;
 			var item = this [position];
 
+			viewHolder.Id = item.Id;
 			viewHolder.Title.Text = item.Title;
 			viewHolder.Favorite.Visibility = item.Favorite ? ViewStates.Visible : ViewStates.Invisible;
 			viewHolder.Recurring.Visibility = item.Recurring != null ? ViewStates.Visible :ViewStates.Invisible;
@@ -69,6 +78,8 @@ namespace Cassini.ShopIt
 
 	class ShoppingItemViewHolder : Java.Lang.Object
 	{
+		public int Id { get; set; }
+
 		public TextView Title { get; set; }
 
 		public ImageView Favorite { get; set; }

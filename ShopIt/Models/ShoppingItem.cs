@@ -8,9 +8,10 @@ namespace Cassini.ShopIt
 		public ShoppingItem ()
 		{
 			Categories = new List<ShoppingItemCategory> ();
+			Id = DateTime.Now.GetHashCode ();
 		}
 
-		public int Id { get; set; }
+		public int Id { get; private set; }
 
 		public string Title { get; set; }
 

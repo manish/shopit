@@ -1,15 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
 
 namespace Cassini.ShopIt
 {
 	class ShoppingItemManager
 	{
 		readonly List<ShoppingItem> items = new List<ShoppingItem> ();
+		readonly ReadOnlyCollection<ShoppingItem> itemsCollection;
+
 		static ShoppingItemManager singleton;
 
 		protected ShoppingItemManager ()
 		{
+			itemsCollection = new ReadOnlyCollection<ShoppingItem> (items);
 			items.Add (new ShoppingItem { Title = "Tabasco Pepper Sauce", Favorite = true, Recurring = new RecurringItem () });
 			items.Add (new ShoppingItem { Title = "Justin's Honey Peanut Butter Blend all-natural (16 oz or 1 lb)", Favorite = false, Recurring = new RecurringItem () });
 			items.Add (new ShoppingItem { Title = "XBox 360 Controller", Favorite = true });
@@ -30,6 +35,13 @@ namespace Cassini.ShopIt
 			}
 		}
 
+		public ReadOnlyCollection<ShoppingItem> Items
+		{
+			get {
+				return itemsCollection;
+			}
+		}
+
 		public int Count
 		{
 			get {
@@ -46,6 +58,14 @@ namespace Cassini.ShopIt
 		{
 			items.Add (item);
 			OnAdded (item);
+		}
+
+		public void Remove (int id)
+		{
+			var item = ShoppingItemManager.Instance.Items.FirstOrDefault (x => x.Id == id);
+			if (item != null)
+				items.Remove (item);
+			OnRemoved (item);
 		}
 
 		void OnAdded (ShoppingItem item)

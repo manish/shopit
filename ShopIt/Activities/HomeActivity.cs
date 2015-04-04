@@ -75,7 +75,7 @@ namespace Cassini.ShopIt
 			};
 
 			//Set the drawer lister to be the toggle.
-			drawerLayout.SetDrawerListener (this.drawerToggle);
+			drawerLayout.SetDrawerListener (drawerToggle);
 
 			//if first time you will want to go ahead and click first item.
 			if (savedInstanceState == null)
