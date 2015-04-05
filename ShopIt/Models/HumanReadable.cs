@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Cassini.ShopIt
 {
@@ -8,6 +9,8 @@ namespace Cassini.ShopIt
 		{
 			var now = DateTime.Now;
 			var dueSpan = dateTime - now;
+			if (dateTime.Day - now.Day == 1)
+				return "Tomorrow";
 			if (dueSpan.Days > 1)
 				return string.Format ("{0} days", dueSpan.Days);
 			if (dueSpan.Days > 0)
@@ -23,6 +26,13 @@ namespace Cassini.ShopIt
 				return string.Format ("Due Now");
 
 			return string.Empty;
+		}
+
+		public static string ToRecurringCount (this RecurringItem item)
+		{
+			if (item.RecurringCount == null || item.RecurringCount.Value == 0)
+				return "Forever";
+			return string.Format ("{0} times", item.RecurringCount.Value);
 		}
 	}
 }

@@ -27,6 +27,11 @@ namespace Cassini.ShopIt
 		TextView dueDateText;
 		TextView dueTimeText;
 
+		Switch recurringSwitch;
+		TextView recurringStartDateText;
+		TextView recurringDurationText;
+		TextView recurringTimesText;
+
 		protected override void OnCreate (Bundle bundle)
 		{
 			base.OnCreate (bundle);
@@ -71,12 +76,32 @@ namespace Cassini.ShopIt
 
 			HandleItemDueSection ();
 
-			var recurringSwitch = FindViewById<Switch> (Resource.Id.recurring_switch);
+			HandleItemRecurringSection ();
+		}
 
-			var dueLayout = FindViewById<RelativeLayout> (Resource.Id.due_item_layout);
-			if (itemBeingEdited != null) {
+		void HandleItemRecurringSection ()
+		{
+			recurringSwitch = FindViewById<Switch> (Resource.Id.recurring_switch);
+			var recurringLayout = FindViewById<RelativeLayout> (Resource.Id.recurring_item_layout);
+			recurringSwitch.CheckedChange += (sender, e) => recurringLayout.Visibility = e.IsChecked ? ViewStates.Visible : ViewStates.Gone;
+			var recurringData = itemBeingEdited != null && itemBeingEdited.Recurring != null ? itemBeingEdited.Recurring : new RecurringItem ();
+			recurringStartDateText = FindViewById<TextView> (Resource.Id.recurring_start_date);
+			recurringStartDateText.Text = recurringData.First.ToLongDateString ();
+			recurringStartDateText.Tag = new TagItem<RecurringItem> {
+				Item = recurringData
+			};
+			recurringDurationText = FindViewById<TextView> (Resource.Id.recurring_repeat);
+			recurringDurationText.Text = recurringData.ToRecurringPeriod ();
+			recurringDurationText.Tag = new TagItem<RecurringItem> {
+				Item = recurringData
+			};
+			recurringTimesText = FindViewById<TextView> (Resource.Id.recurring_times);
+			recurringTimesText.Text = recurringData.ToRecurringCount ();
+			recurringTimesText.Tag = new TagItem<RecurringItem> {
+				Item = recurringData
+			};
+			if (itemBeingEdited != null)
 				recurringSwitch.Checked = itemBeingEdited.Recurring != null;
-			}
 		}
 
 		void HandleItemDueSection ()
@@ -166,6 +191,18 @@ namespace Cassini.ShopIt
 					item.DueDate = new DateTime (dueDate.Year, dueDate.Month, dueDate.Day, dueTime.Hour, dueTime.Minute, 0);
 				} else
 					item.DueDate = null;
+
+				if (recurringSwitch.Checked) {
+					var recurringStartDate = (recurringStartDateText.Tag as TagItem<RecurringItem>).Item;
+					var recurringDuration = (recurringDurationText.Tag as TagItem<RecurringItem>).Item;
+					var recurringTimes = (recurringTimesText.Tag as TagItem<RecurringItem>).Item;
+					item.Recurring = new RecurringItem {
+						First = recurringStartDate.First,
+						Period = recurringDuration.Period,
+						RecurringCount = recurringTimes.RecurringCount
+					};
+				} else
+					item.Recurring = null;
 
 				if (itemBeingEdited == null)
 					ShoppingItemManager.Instance.Add (item);
