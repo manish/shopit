@@ -14,6 +14,7 @@ namespace Cassini.ShopIt
 		{
 			this.context = context;
 			ShoppingItemManager.Instance.Changed += (sender, e) => NotifyDataSetChanged ();
+			ShoppingItemCategoryManager.Instance.Changed += (sender, e) => NotifyDataSetChanged ();
 		}
 
 		public void Remove (View view)

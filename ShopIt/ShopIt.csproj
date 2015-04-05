@@ -81,6 +81,7 @@
     <Compile Include="Models\TagItem.cs" />
     <Compile Include="Models\HumanReadable.cs" />
     <Compile Include="Adapters\RepeatListAdapter.cs" />
+    <Compile Include="Adapters\CategoriesListAdapter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />

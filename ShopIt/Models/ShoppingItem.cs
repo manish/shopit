@@ -7,7 +7,7 @@ namespace Cassini.ShopIt
 	{
 		public ShoppingItem ()
 		{
-			Categories = new List<ShoppingItemCategory> ();
+			Categories = new List<int> ();
 			Created = DateTime.Now;
 			Id = Created.GetHashCode ();
 		}
@@ -23,7 +23,7 @@ namespace Cassini.ShopIt
 
 		public bool Favorite { get; set; }
 
-		public List<ShoppingItemCategory> Categories { get; set; }
+		public List<int> Categories { get; set; }
 
 		public DateTime? DueDate { get; set; }
 

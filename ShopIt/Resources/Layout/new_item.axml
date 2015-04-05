@@ -47,28 +47,37 @@
             android:layout_marginTop="6dp"
             android:layout_marginLeft="60dp" />
         <ImageView
-            android:src="@drawable/ic_add_black_18dp"
+            android:src="@drawable/ic_add_black_24dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/add_new_category_icon"
             android:clickable="true"
             android:visibility="visible"
             android:layout_marginTop="6dp"
-            android:layout_marginBottom="3dp"
+            android:layout_marginBottom="6dp"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:layout_marginRight="6dp" />
+            android:layout_marginRight="6dp"
+            android:layout_marginLeft="6dp" />
     </RelativeLayout>
-    <LinearLayout
+    <RelativeLayout
         android:orientation="horizontal"
-        android:minWidth="25px"
-        android:minHeight="25px"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginRight="6dp"
-        android:id="@+id/existing_categories"
-        android:visibility="gone"
-        android:layout_gravity="center_horizontal" />
+        android:layout_marginTop="6dp"
+        android:layout_marginBottom="6dp"
+        android:visibility="visible"
+        android:id="@+id/select_item_category_layout">
+        <ListView
+            android:layout_width="fill_parent"
+            android:layout_height="150dp"
+            android:id="@+id/existing_categories"
+            android:visibility="visible"
+            android:layout_marginTop="6dp"
+            android:layout_marginLeft="60dp"
+            android:layout_marginBottom="6dp"
+            android:layout_gravity="center_horizontal" />
+    </RelativeLayout>
     <View
         style="@style/indented_divider" />
     <RelativeLayout

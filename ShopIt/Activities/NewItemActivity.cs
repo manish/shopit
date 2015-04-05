@@ -31,6 +31,9 @@ namespace Cassini.ShopIt
 		TextView recurringStartDateText;
 		TextView recurringDurationText;
 
+		CategoriesListAdapter categoryAdapter;
+		ListView categoriesLayout;
+
 		protected override void OnCreate (Bundle bundle)
 		{
 			base.OnCreate (bundle);
@@ -60,22 +63,42 @@ namespace Cassini.ShopIt
 			if (itemBeingEdited != null)
 				newItemEntry.Text = itemBeingEdited.Title;
 
-			var categoriesLayout = FindViewById<LinearLayout> (Resource.Id.existing_categories);
-			foreach (var category in ShoppingItemCategoryManager.Instance.Items) {
-				var categoryTextView = new ToggleButton (this);
-				categoryTextView.TextSize = 14;
-				categoryTextView.SetTextColor (GetTextColor (false));
-				categoryTextView.SetPadding (6, 3, 6, 3);
-				categoryTextView.Gravity = GravityFlags.CenterHorizontal | GravityFlags.CenterVertical;
-				categoryTextView.SetBackgroundColor (GetBackGroundColor (category.Color, false));
-				categoryTextView.Text = categoryTextView.TextOff = categoryTextView.TextOn = category.Name;
-				categoryTextView.SetOnClickListener (this);
-				categoriesLayout.AddView (categoryTextView);
-			}
+			HandleCategoriesSection ();
 
 			HandleItemDueSection ();
 
 			HandleItemRecurringSection ();
+		}
+
+		void HandleCategoriesSection ()
+		{
+			categoriesLayout = FindViewById<ListView> (Resource.Id.existing_categories);
+			categoryAdapter = new CategoriesListAdapter (this, itemBeingEdited != null ? itemBeingEdited.Categories : new List<int> ());
+			categoriesLayout.Adapter = categoryAdapter;
+			var categoryAddIcon = FindViewById<ImageView> (Resource.Id.add_new_category_icon);
+			categoryAddIcon.Touch += (sender, e) =>  {
+				if (e.Event.Action == MotionEventActions.Down) {
+					var newCategoryEditText = new EditText (this);
+					newCategoryEditText.SetTextColor (Color.Black);
+					newCategoryEditText.SetPaddingRelative (24, 24, 24, 24);
+					newCategoryEditText.SetIncludeFontPadding (true);
+					var newCategoryDialog = new AlertDialog.Builder (this);
+					newCategoryDialog.SetView (newCategoryEditText);
+					newCategoryDialog.SetTitle ("New Category");
+					newCategoryDialog.SetNegativeButton ("Cancel", delegate {
+					});
+					newCategoryDialog.SetNeutralButton ("OK", (o, args) =>  {
+						var categoryName = newCategoryEditText.Text.Trim ();
+						if (!string.IsNullOrEmpty (categoryName)) {
+							var newCategoryId = ShoppingItemCategoryManager.Instance.Add (newCategoryEditText.Text);
+							categoryAdapter.NotifyNewCategory (newCategoryId);
+						}
+						else
+							Toast.MakeText (this, "Category Name cannot be empty", ToastLength.Short).Show ();
+					});
+					newCategoryDialog.Show ();
+				}
+			};
 		}
 
 		void HandleItemRecurringSection ()
@@ -219,6 +242,13 @@ namespace Cassini.ShopIt
 				} else
 					item.Recurring = null;
 
+				item.Categories.Clear ();
+				for (int i = 0; i < categoriesLayout.ChildCount; i++) {
+					var checkBox = categoriesLayout.GetChildAt (i) as CheckBox;
+					if (checkBox.Checked) 
+						item.Categories.Add ((checkBox.Tag as TagItem<ShoppingItemCategory>).Item.Id);
+				}
+
 				if (itemBeingEdited == null)
 					ShoppingItemManager.Instance.Add (item);
 				
@@ -233,23 +263,6 @@ namespace Cassini.ShopIt
 
 		public void OnClick (View v)
 		{
-			var button = v as ToggleButton;
-			if (button != null) {
-				var categoryItem = ShoppingItemCategoryManager.Instance.Items.First (x => x.Name == button.Text);
-				button.SetBackgroundColor (GetBackGroundColor (categoryItem.Color, button.Checked));
-				button.SetTextColor (GetTextColor (button.Checked));
-			}
-		}
-
-		Color GetBackGroundColor (System.Drawing.Color color, bool pressedState)
-		{
-			byte alpha = (byte)(color.A / (pressedState ? 1 : 10));
-			return new Color (color.R, color.G, color.B, alpha);
-		}
-
-		Color GetTextColor (bool pressedState)
-		{
-			return pressedState ? Color.White : Color.Black;
 		}
 	}
 }

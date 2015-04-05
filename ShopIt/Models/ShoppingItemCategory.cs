@@ -7,13 +7,12 @@ namespace Cassini.ShopIt
 	{
 		public ShoppingItemCategory ()
 		{
+			Id = DateTime.Now.GetHashCode ();
 		}
 
 		public int Id { get; set; }
 
 		public string Name { get; set; }
-
-		public Color Color { get; set; }
 	}
 }
 
