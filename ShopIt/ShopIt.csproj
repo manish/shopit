@@ -528,6 +528,32 @@
     <AndroidResource Include="Resources\Drawable-xxxhdpi\ic_schedule_grey600_24dp.png" />
     <AndroidResource Include="Resources\Drawable-xxxhdpi\ic_schedule_white_18dp.png" />
     <AndroidResource Include="Resources\Drawable-xxxhdpi\ic_schedule_white_24dp.png" />
+    <AndroidResource Include="Resources\Drawable-hdpi\ic_room_grey600_18dp.png" />
+    <AndroidResource Include="Resources\Drawable-hdpi\ic_room_grey600_24dp.png" />
+    <AndroidResource Include="Resources\Drawable-mdpi\ic_room_grey600_18dp.png" />
+    <AndroidResource Include="Resources\Drawable-mdpi\ic_room_grey600_24dp.png" />
+    <AndroidResource Include="Resources\Drawable-xhdpi\ic_room_grey600_18dp.png" />
+    <AndroidResource Include="Resources\Drawable-xhdpi\ic_room_grey600_24dp.png" />
+    <AndroidResource Include="Resources\Drawable-xhdpi\ic_schedule_black_18dp.png" />
+    <AndroidResource Include="Resources\Drawable-xhdpi\ic_schedule_black_24dp.png" />
+    <AndroidResource Include="Resources\Drawable-xhdpi\ic_schedule_grey600_18dp.png" />
+    <AndroidResource Include="Resources\Drawable-xhdpi\ic_schedule_grey600_24dp.png" />
+    <AndroidResource Include="Resources\Drawable-xhdpi\ic_schedule_white_18dp.png" />
+    <AndroidResource Include="Resources\Drawable-xhdpi\ic_schedule_white_24dp.png" />
+    <AndroidResource Include="Resources\Drawable-xxhdpi\ic_room_grey600_18dp.png" />
+    <AndroidResource Include="Resources\Drawable-xxhdpi\ic_room_grey600_24dp.png" />
+    <AndroidResource Include="Resources\Drawable-xxxhdpi\ic_room_grey600_18dp.png" />
+    <AndroidResource Include="Resources\Drawable-xxxhdpi\ic_room_grey600_24dp.png" />
+    <AndroidResource Include="Resources\Drawable-xxxhdpi\ic_subject_grey600_18dp.png" />
+    <AndroidResource Include="Resources\Drawable-xxxhdpi\ic_subject_grey600_24dp.png" />
+    <AndroidResource Include="Resources\Drawable-xxhdpi\ic_subject_grey600_18dp.png" />
+    <AndroidResource Include="Resources\Drawable-xxhdpi\ic_subject_grey600_24dp.png" />
+    <AndroidResource Include="Resources\Drawable-xhdpi\ic_subject_grey600_18dp.png" />
+    <AndroidResource Include="Resources\Drawable-xhdpi\ic_subject_grey600_24dp.png" />
+    <AndroidResource Include="Resources\Drawable-mdpi\ic_subject_grey600_18dp.png" />
+    <AndroidResource Include="Resources\Drawable-mdpi\ic_subject_grey600_24dp.png" />
+    <AndroidResource Include="Resources\Drawable-hdpi\ic_subject_grey600_18dp.png" />
+    <AndroidResource Include="Resources\Drawable-hdpi\ic_subject_grey600_24dp.png" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Properties\AndroidManifest.xml" />

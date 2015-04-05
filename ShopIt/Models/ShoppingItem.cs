@@ -27,11 +27,15 @@ namespace Cassini.ShopIt
 
 		public DateTime? DueDate { get; set; }
 
+		public RecurringItem Recurring { get; set; }
+
+		public string Location { get; set; }
+
+		public string Notes { get; set; }
+
 		public DateTime Created { get; private set; }
 
 		public DateTime LastModified { get; private set; }
-
-		public RecurringItem Recurring { get; set; }
 	}
 
 	public class RecurringItem

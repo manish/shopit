@@ -34,6 +34,9 @@ namespace Cassini.ShopIt
 		CategoriesListAdapter categoryAdapter;
 		ListView categoriesLayout;
 
+		EditText itemLocationText;
+		EditText itemNotesText;
+
 		protected override void OnCreate (Bundle bundle)
 		{
 			base.OnCreate (bundle);
@@ -68,6 +71,19 @@ namespace Cassini.ShopIt
 			HandleItemDueSection ();
 
 			HandleItemRecurringSection ();
+
+			HandleLocationAndNotesSection ();
+		}
+
+		void HandleLocationAndNotesSection ()
+		{
+			itemLocationText = FindViewById<EditText> (Resource.Id.item_location_text);
+			itemNotesText = FindViewById<EditText> (Resource.Id.item_notes_text);
+
+			if (itemBeingEdited != null) {
+				itemLocationText.Text = itemBeingEdited.Location;
+				itemNotesText.Text = itemBeingEdited.Notes;
+			}
 		}
 
 		void HandleCategoriesSection ()
@@ -248,6 +264,9 @@ namespace Cassini.ShopIt
 					if (checkBox.Checked) 
 						item.Categories.Add ((checkBox.Tag as TagItem<ShoppingItemCategory>).Item.Id);
 				}
+
+				item.Location = itemLocationText.Text.Trim ();
+				item.Notes = itemNotesText.Text.Trim ();
 
 				if (itemBeingEdited == null)
 					ShoppingItemManager.Instance.Add (item);
