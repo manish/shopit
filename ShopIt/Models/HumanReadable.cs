@@ -67,13 +67,6 @@ namespace Cassini.ShopIt
 			return string.Empty;
 		}
 
-		public static string ToRecurringCount (this RecurringItem item)
-		{
-			if (item.RecurringCount == null || item.RecurringCount.Value == 0)
-				return "Forever";
-			return string.Format ("{0} times", item.RecurringCount.Value);
-		}
-
 		public static string ToRecurringPeriod (this RecurringPeriod period)
 		{
 			string value;

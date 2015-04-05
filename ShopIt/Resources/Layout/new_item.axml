@@ -170,14 +170,6 @@
             android:layout_height="wrap_content"
             android:id="@+id/recurring_repeat"
             android:layout_marginRight="12dp"
-            android:layout_toLeftOf="@+id/recurring_times" />
-        <TextView
-            android:text="Forever"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/recurring_times"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="12dp" />
+            android:layout_alignParentRight="true" />
     </RelativeLayout>
 </LinearLayout>

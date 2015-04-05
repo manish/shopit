@@ -42,7 +42,6 @@ namespace Cassini.ShopIt
 					Due = view.FindViewById<ImageView> (Resource.Id.item_due_icon),
 					DueText = view.FindViewById<TextView> (Resource.Id.item_due_text),
 					Recurring = view.FindViewById<ImageView> (Resource.Id.recurring_icon),
-					RecurringText = view.FindViewById<TextView> (Resource.Id.recurring_text),
 				};
 				view.Tag = viewHolder;
 			}
@@ -61,7 +60,6 @@ namespace Cassini.ShopIt
 
 			viewHolder.Recurring.Visibility = item.Recurring != null ? ViewStates.Visible :ViewStates.Gone;
 			viewHolder.Recurring.Visibility = item.Recurring != null ? ViewStates.Visible :ViewStates.Gone;
-			viewHolder.RecurringText.Text = item.Recurring != null ? item.Recurring.ToUpcomingRecurring () : string.Empty;
 
 			viewHolder.Favorite.Tag = new TagItem<ShoppingItem> { Item = item };
 			viewHolder.Favorite.SetOnClickListener (this);
@@ -106,8 +104,6 @@ namespace Cassini.ShopIt
 		public TextView DueText { get; set; }
 
 		public ImageView Recurring { get; set; }
-
-		public TextView RecurringText { get; set; }
 	}
 }
 

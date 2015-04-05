@@ -40,14 +40,11 @@ namespace Cassini.ShopIt
 		{
 			First = DateTime.Now;
 			Period = RecurringPeriod.Weekly;
-			RecurringCount = 0;
 		}
 
 		public DateTime First { get; set; }
 
 		public RecurringPeriod Period { get; set; }
-
-		public int? RecurringCount { get; set; }
 	}
 
 	[Flags]

@@ -30,7 +30,6 @@ namespace Cassini.ShopIt
 		Switch recurringSwitch;
 		TextView recurringStartDateText;
 		TextView recurringDurationText;
-		TextView recurringTimesText;
 
 		protected override void OnCreate (Bundle bundle)
 		{
@@ -117,10 +116,6 @@ namespace Cassini.ShopIt
 					recurringDialog.Show ();
 				}
 			};
-
-			recurringTimesText = FindViewById<TextView> (Resource.Id.recurring_times);
-			recurringTimesText.Text = recurringData.ToRecurringCount ();
-			recurringTimesText.Tag = new TagItem<RecurringItem> { Item = recurringData };
 
 			if (itemBeingEdited != null)
 				recurringSwitch.Checked = itemBeingEdited.Recurring != null;
@@ -217,11 +212,9 @@ namespace Cassini.ShopIt
 				if (recurringSwitch.Checked) {
 					var recurringStartDate = (recurringStartDateText.Tag as TagItem<RecurringItem>).Item;
 					var recurringDuration = (recurringDurationText.Tag as TagItem<RecurringItem>).Item;
-					var recurringTimes = (recurringTimesText.Tag as TagItem<RecurringItem>).Item;
 					item.Recurring = new RecurringItem {
 						First = recurringStartDate.First,
 						Period = recurringDuration.Period,
-						RecurringCount = recurringTimes.RecurringCount
 					};
 				} else
 					item.Recurring = null;
