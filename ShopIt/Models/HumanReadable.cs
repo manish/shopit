@@ -82,13 +82,13 @@ namespace Cassini.ShopIt
 		public static string ToUpcomingRecurring (this RecurringItem item)
 		{
 			TimeSpan timeSpan;
-			var now = DateTime.Now;
-			DateTime nextOccurrence = now;
+			var first = item.First;
+			DateTime nextOccurrence = first;
 			string occurrenceFreq;
 			if (periodToTimeSpan.TryGetValue (item.Period, out timeSpan)) {
 				do {
 					nextOccurrence += timeSpan;
-				} while (nextOccurrence < now);
+				} while (nextOccurrence < first);
 				occurrenceFreq = periodToString [item.Period];
 			} else {
 				var days = item.Period.RecurringPeriodToDayOfWeek ().ToList ();

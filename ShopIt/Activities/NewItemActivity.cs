@@ -87,19 +87,27 @@ namespace Cassini.ShopIt
 			var recurringData = itemBeingEdited != null && itemBeingEdited.Recurring != null ? itemBeingEdited.Recurring : new RecurringItem ();
 			recurringStartDateText = FindViewById<TextView> (Resource.Id.recurring_start_date);
 			recurringStartDateText.Text = recurringData.First.ToLongDateString ();
-			recurringStartDateText.Tag = new TagItem<RecurringItem> {
-				Item = recurringData
+			recurringStartDateText.Tag = new TagItem<RecurringItem> { Item = recurringData };
+			recurringStartDateText.Touch += (sender, e) => {
+				if (e.Event.Action == MotionEventActions.Down) {
+					var now = (recurringStartDateText.Tag as TagItem<RecurringItem>).Item.First;
+					new DatePickerDialog (this,
+						(o, args) => {
+							recurringStartDateText.Text = args.Date.ToLongDateString ();
+							(recurringStartDateText.Tag as TagItem<RecurringItem>).Item.First = args.Date;
+						}, 
+						now.Year, now.Month-1, now.Day).Show ();
+				}
 			};
+
 			recurringDurationText = FindViewById<TextView> (Resource.Id.recurring_repeat);
 			recurringDurationText.Text = recurringData.ToRecurringPeriod ();
-			recurringDurationText.Tag = new TagItem<RecurringItem> {
-				Item = recurringData
-			};
+			recurringDurationText.Tag = new TagItem<RecurringItem> { Item = recurringData };
+
 			recurringTimesText = FindViewById<TextView> (Resource.Id.recurring_times);
 			recurringTimesText.Text = recurringData.ToRecurringCount ();
-			recurringTimesText.Tag = new TagItem<RecurringItem> {
-				Item = recurringData
-			};
+			recurringTimesText.Tag = new TagItem<RecurringItem> { Item = recurringData };
+
 			if (itemBeingEdited != null)
 				recurringSwitch.Checked = itemBeingEdited.Recurring != null;
 		}
