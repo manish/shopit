@@ -36,28 +36,10 @@ namespace Cassini.ShopIt
 
 	public class RecurringItem
 	{
-		static readonly Dictionary<RecurringPeriod, string> periodToString = new Dictionary<RecurringPeriod, string> {
-			{ RecurringPeriod.Weekly , "Weekly"},
-			{ RecurringPeriod.Sunday , "Sunday"},
-			{ RecurringPeriod.Monday , "Monday"},
-			{ RecurringPeriod.Tuesday , "Tuesday"},
-			{ RecurringPeriod.Wednesday , "Wednesday"},
-			{ RecurringPeriod.Thursday , "Thursday"},
-			{ RecurringPeriod.Friday , "Friday"},
-			{ RecurringPeriod.Saturday , "Saturday"},
-			{ RecurringPeriod.Weekend , "Weekend"},
-			{ RecurringPeriod.Weekdays , "Weekdays"},
-			{ RecurringPeriod.Daily , "Daily"},
-			{ RecurringPeriod.EveryOtherWeek , "Every Other Week"},
-			{ RecurringPeriod.Monthly , "Monthly"},
-			{ RecurringPeriod.EveryOtherMonth , "Every Other Month"},
-			{ RecurringPeriod.Yearly , "Yearly"},
-		};
-
 		public RecurringItem ()
 		{
 			First = DateTime.Now;
-			Period = RecurringPeriod.EveryOtherWeek;
+			Period = RecurringPeriod.Weekly;
 			RecurringCount = 0;
 		}
 
@@ -66,11 +48,6 @@ namespace Cassini.ShopIt
 		public RecurringPeriod Period { get; set; }
 
 		public int? RecurringCount { get; set; }
-
-		public string ToRecurringPeriod ()
-		{
-			return periodToString [Period];
-		}
 	}
 
 	[Flags]

@@ -1,10 +1,48 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Cassini.ShopIt
 {
 	public static class HumanReadable
 	{
+		static readonly Dictionary<RecurringPeriod, string> periodToString = new Dictionary<RecurringPeriod, string> {
+			{ RecurringPeriod.Weekly , "Weekly"},
+			{ RecurringPeriod.Sunday , "Sunday"},
+			{ RecurringPeriod.Monday , "Monday"},
+			{ RecurringPeriod.Tuesday , "Tuesday"},
+			{ RecurringPeriod.Wednesday , "Wednesday"},
+			{ RecurringPeriod.Thursday , "Thursday"},
+			{ RecurringPeriod.Friday , "Friday"},
+			{ RecurringPeriod.Saturday , "Saturday"},
+			{ RecurringPeriod.Weekend , "Weekend"},
+			{ RecurringPeriod.Weekdays , "Weekdays"},
+			{ RecurringPeriod.Daily , "Daily"},
+			{ RecurringPeriod.EveryOtherWeek , "Every Other Week"},
+			{ RecurringPeriod.Monthly , "Monthly"},
+			{ RecurringPeriod.EveryOtherMonth , "Every Other Month"},
+			{ RecurringPeriod.Yearly , "Yearly"},
+		};
+
+		static readonly Dictionary<RecurringPeriod, TimeSpan> periodToTimeSpan = new Dictionary<RecurringPeriod, TimeSpan> {
+			{ RecurringPeriod.Weekly , new TimeSpan (7, 0, 0, 0)},
+			{ RecurringPeriod.Daily , new TimeSpan (1, 0, 0, 0)},
+			{ RecurringPeriod.EveryOtherWeek , new TimeSpan (14, 0, 0, 0)},
+			{ RecurringPeriod.Monthly , new TimeSpan (30, 0, 0, 0)},
+			{ RecurringPeriod.EveryOtherMonth , new TimeSpan (60, 0, 0, 0)},
+			{ RecurringPeriod.Yearly , new TimeSpan (365, 0, 0, 0)},
+		};
+
+		static readonly Dictionary<int, DayOfWeek> periodToDayofWeek = new Dictionary<int, DayOfWeek> {
+			{ 1 	 , DayOfWeek.Sunday},
+			{ 1 << 1 , DayOfWeek.Monday},
+			{ 1 << 2 , DayOfWeek.Tuesday},
+			{ 1 << 3 , DayOfWeek.Wednesday},
+			{ 1 << 4 , DayOfWeek.Thursday},
+			{ 1 << 5 , DayOfWeek.Friday},
+			{ 1 << 6 , DayOfWeek.Saturday},
+		};
+
 		public static string ToHumanReadable (this DateTime dateTime)
 		{
 			var now = DateTime.Now;
@@ -33,6 +71,49 @@ namespace Cassini.ShopIt
 			if (item.RecurringCount == null || item.RecurringCount.Value == 0)
 				return "Forever";
 			return string.Format ("{0} times", item.RecurringCount.Value);
+		}
+
+		public static string ToRecurringPeriod (this RecurringItem item)
+		{
+			string value;
+			return periodToString.TryGetValue (item.Period, out value) ? value : ToRecurringPeriod (item.Period);
+		}
+
+		public static string ToUpcomingRecurring (this RecurringItem item)
+		{
+			TimeSpan timeSpan;
+			var now = DateTime.Now;
+			DateTime nextOccurrence = now;
+			string occurrenceFreq;
+			if (periodToTimeSpan.TryGetValue (item.Period, out timeSpan)) {
+				do {
+					nextOccurrence += timeSpan;
+				} while (nextOccurrence < now);
+				occurrenceFreq = periodToString [item.Period];
+			} else {
+				var days = item.Period.RecurringPeriodToDayOfWeek ().ToList ();
+				do {
+					nextOccurrence += TimeSpan.FromDays (1);
+				} while (!days.Contains (nextOccurrence.DayOfWeek));
+				occurrenceFreq = Enum.IsDefined (typeof(RecurringPeriod), item.Period) ? item.Period.ToString () :
+					string.Join (", ", days.Select (x => x.ToString ()));
+			}
+			return string.Format("Next in {0} ({1})", nextOccurrence.ToHumanReadable (), occurrenceFreq);
+		}
+
+		public static string ToRecurringPeriod (RecurringPeriod period)
+		{
+			var days = period.RecurringPeriodToDayOfWeek ().ToList ();
+			return Enum.IsDefined (typeof(RecurringPeriod), period) ? period.ToString () :
+			string.Join (", ", days.Select (x => x.ToString ()));
+		}
+
+		public static IEnumerable<DayOfWeek> RecurringPeriodToDayOfWeek (this RecurringPeriod period)
+		{
+			foreach (var day in periodToDayofWeek) {
+				if ((day.Key & (int)period) > 0)
+					yield return day.Value;
+			}
 		}
 	}
 }
