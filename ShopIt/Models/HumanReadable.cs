@@ -7,7 +7,7 @@ namespace Cassini.ShopIt
 	public static class HumanReadable
 	{
 		static readonly Dictionary<RecurringPeriod, string> periodToString = new Dictionary<RecurringPeriod, string> {
-			{ RecurringPeriod.Weekly , "Weekly"},
+			{ RecurringPeriod.Weekly , "Every week"},
 			{ RecurringPeriod.Sunday , "Sunday"},
 			{ RecurringPeriod.Monday , "Monday"},
 			{ RecurringPeriod.Tuesday , "Tuesday"},
@@ -17,11 +17,12 @@ namespace Cassini.ShopIt
 			{ RecurringPeriod.Saturday , "Saturday"},
 			{ RecurringPeriod.Weekend , "Weekend"},
 			{ RecurringPeriod.Weekdays , "Weekdays"},
-			{ RecurringPeriod.Daily , "Daily"},
+			{ RecurringPeriod.Daily , "Every day"},
 			{ RecurringPeriod.EveryOtherWeek , "Every Other Week"},
-			{ RecurringPeriod.Monthly , "Monthly"},
+			{ RecurringPeriod.Monthly , "Every month"},
 			{ RecurringPeriod.EveryOtherMonth , "Every Other Month"},
-			{ RecurringPeriod.Yearly , "Yearly"},
+			{ RecurringPeriod.Yearly , "Every year"},
+			{ RecurringPeriod.SpecificDays , "Custom"},
 		};
 
 		static readonly Dictionary<RecurringPeriod, TimeSpan> periodToTimeSpan = new Dictionary<RecurringPeriod, TimeSpan> {
@@ -73,10 +74,10 @@ namespace Cassini.ShopIt
 			return string.Format ("{0} times", item.RecurringCount.Value);
 		}
 
-		public static string ToRecurringPeriod (this RecurringItem item)
+		public static string ToRecurringPeriod (this RecurringPeriod period)
 		{
 			string value;
-			return periodToString.TryGetValue (item.Period, out value) ? value : ToRecurringPeriod (item.Period);
+			return periodToString.TryGetValue (period, out value) ? value : ToRecurringPeriodSpecificDays (period);
 		}
 
 		public static string ToUpcomingRecurring (this RecurringItem item)
@@ -101,7 +102,7 @@ namespace Cassini.ShopIt
 			return string.Format("Next in {0} ({1})", nextOccurrence.ToHumanReadable (), occurrenceFreq);
 		}
 
-		public static string ToRecurringPeriod (RecurringPeriod period)
+		public static string ToRecurringPeriodSpecificDays (RecurringPeriod period)
 		{
 			var days = period.RecurringPeriodToDayOfWeek ().ToList ();
 			return Enum.IsDefined (typeof(RecurringPeriod), period) ? period.ToString () :

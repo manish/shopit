@@ -101,8 +101,22 @@ namespace Cassini.ShopIt
 			};
 
 			recurringDurationText = FindViewById<TextView> (Resource.Id.recurring_repeat);
-			recurringDurationText.Text = recurringData.ToRecurringPeriod ();
+			recurringDurationText.Text = recurringData.Period.ToRecurringPeriod ();
 			recurringDurationText.Tag = new TagItem<RecurringItem> { Item = recurringData };
+			recurringDurationText.Touch += (sender, e) => {
+				if (e.Event.Action == MotionEventActions.Down) {
+					var recurringDialog = new AlertDialog.Builder (this);
+					var adapter = new RepeatListAdapter (this);
+					recurringDialog.SetAdapter (adapter, (o, args) => {
+						var choice = adapter[args.Which];
+						if (choice != RecurringPeriod.SpecificDays) {
+							recurringData.Period = choice;
+							recurringDurationText.Text = recurringData.Period.ToRecurringPeriod ();
+						}
+					});
+					recurringDialog.Show ();
+				}
+			};
 
 			recurringTimesText = FindViewById<TextView> (Resource.Id.recurring_times);
 			recurringTimesText.Text = recurringData.ToRecurringCount ();

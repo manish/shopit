@@ -80,6 +80,7 @@
     <Compile Include="Models\ShoppingItemCategoryManager.cs" />
     <Compile Include="Models\TagItem.cs" />
     <Compile Include="Models\HumanReadable.cs" />
+    <Compile Include="Adapters\RepeatListAdapter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />

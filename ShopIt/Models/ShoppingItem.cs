@@ -68,6 +68,7 @@ namespace Cassini.ShopIt
 		Monthly			= 1 << 8,
 		EveryOtherMonth	= 1 << 9,
 		Yearly			= 1 << 10,
+		SpecificDays	= 1 << 20
 	}
 }
 
