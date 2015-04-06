@@ -11,7 +11,9 @@
         p1:layout_marginTop="6dp"
         p1:layout_marginLeft="12dp"
         p1:id="@+id/shopping_item_title"
-        p1:layout_marginBottom="12dp" />
+        p1:layout_marginBottom="6dp"
+        p1:textColor="@android:color/black"
+        p1:background="@android:color/transparent" />
     <ImageView
         p1:src="@drawable/ic_favorite_outline_grey600_18dp"
         p1:layout_width="wrap_content"
@@ -27,53 +29,62 @@
         p1:paddingRight="6dp"
         p1:paddingBottom="6dp"
         p1:paddingLeft="6dp" />
-    <ImageView
-        p1:src="@drawable/ic_schedule_grey600_18dp"
-        p1:layout_width="wrap_content"
+    <View
+        p1:id="@+id/first_divider"
+        p1:layout_below="@+id/shopping_item_title"
+        style="@style/indented_divider" />
+    <RelativeLayout
+        p1:layout_width="match_parent"
         p1:layout_height="wrap_content"
-        p1:id="@+id/item_due_icon"
-        p1:clickable="true"
-        p1:visibility="visible"
+        p1:id="@+id/item_misc_layout"
         p1:layout_marginBottom="6dp"
-        p1:layout_alignParentTop="false"
-        p1:layout_alignParentRight="false"
-        p1:layout_centerVertical="true"
-        p1:layout_below="@+id/shopping_item_title"
-        p1:layout_marginLeft="12dp" />
-    <TextView
-        p1:text="Tomorrow"
-        p1:textAppearance="?android:attr/textAppearanceSmall"
-        p1:layout_width="wrap_content"
-        p1:layout_height="wrap_content"
-        p1:textSize="12dp"
-        p1:id="@+id/item_due_text"
-        p1:layout_below="@+id/shopping_item_title"
-        p1:layout_toRightOf="@+id/item_due_icon"
-        p1:layout_marginLeft="3dp"
-        p1:layout_marginBottom="6dp" />
-    <ImageView
-        p1:src="@drawable/ic_autorenew_grey600_18dp"
-        p1:layout_width="wrap_content"
-        p1:layout_height="wrap_content"
-        p1:id="@+id/recurring_icon"
-        p1:clickable="true"
-        p1:visibility="visible"
-        p1:layout_marginBottom="6dp"
-        p1:layout_alignParentTop="false"
-        p1:layout_alignParentRight="false"
-        p1:layout_centerVertical="true"
-        p1:layout_below="@+id/shopping_item_title"
-        p1:layout_toRightOf="@+id/item_due_text"
-        p1:layout_marginLeft="12dp" />
-    <TextView
-        p1:text="Weekly"
-        p1:textAppearance="?android:attr/textAppearanceSmall"
-        p1:layout_width="wrap_content"
-        p1:layout_height="wrap_content"
-        p1:textSize="12dp"
-        p1:id="@+id/recurring_text"
-        p1:layout_below="@+id/shopping_item_title"
-        p1:layout_toRightOf="@+id/recurring_icon"
-        p1:layout_marginLeft="3dp"
-        p1:layout_marginBottom="6dp" />
+        p1:layout_below="@+id/first_divider">
+        <ImageView
+            p1:src="@drawable/ic_schedule_grey600_18dp"
+            p1:layout_width="wrap_content"
+            p1:layout_height="wrap_content"
+            p1:id="@+id/item_due_icon"
+            p1:clickable="true"
+            p1:visibility="visible"
+            p1:layout_marginBottom="6dp"
+            p1:layout_alignParentTop="false"
+            p1:layout_alignParentRight="false"
+            p1:layout_centerVertical="true"
+            p1:layout_marginLeft="60dp" />
+        <TextView
+            p1:text="Tomorrow"
+            p1:textAppearance="?android:attr/textAppearanceSmall"
+            p1:layout_width="wrap_content"
+            p1:layout_height="wrap_content"
+            p1:textSize="12dp"
+            p1:id="@+id/item_due_text"
+            p1:layout_marginLeft="3dp"
+            p1:layout_centerVertical="true"
+            p1:layout_toRightOf="@+id/item_due_icon"
+            p1:layout_marginBottom="6dp" />
+        <ImageView
+            p1:src="@drawable/ic_autorenew_grey600_18dp"
+            p1:layout_width="wrap_content"
+            p1:layout_height="wrap_content"
+            p1:id="@+id/recurring_icon"
+            p1:clickable="true"
+            p1:visibility="visible"
+            p1:layout_marginBottom="6dp"
+            p1:layout_alignParentTop="false"
+            p1:layout_centerVertical="true"
+            p1:layout_marginLeft="12dp"
+            p1:layout_toLeftOf="@+id/recurring_text" />
+        <TextView
+            p1:text="Weekly"
+            p1:textAppearance="?android:attr/textAppearanceSmall"
+            p1:layout_width="wrap_content"
+            p1:layout_height="wrap_content"
+            p1:textSize="12dp"
+            p1:id="@+id/recurring_text"
+            p1:layout_centerVertical="true"
+            p1:layout_marginLeft="3dp"
+            p1:layout_marginBottom="6dp"
+            p1:layout_alignParentRight="true"
+            p1:layout_marginRight="12dp" />
+    </RelativeLayout>
 </RelativeLayout>

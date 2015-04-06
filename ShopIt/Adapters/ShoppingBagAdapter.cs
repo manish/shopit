@@ -40,6 +40,10 @@ namespace Cassini.ShopIt
 				viewHolder = new ShoppingItemViewHolder {
 					Title = view.FindViewById<TextView> (Resource.Id.shopping_item_title),
 					Favorite = view.FindViewById<ImageView> (Resource.Id.item_fav_icon),
+
+					Divider = view.FindViewById<View> (Resource.Id.first_divider),
+					MiscLayout = view.FindViewById<RelativeLayout> (Resource.Id.item_misc_layout),
+
 					Due = view.FindViewById<ImageView> (Resource.Id.item_due_icon),
 					DueText = view.FindViewById<TextView> (Resource.Id.item_due_text),
 					Recurring = view.FindViewById<ImageView> (Resource.Id.recurring_icon),
@@ -56,13 +60,17 @@ namespace Cassini.ShopIt
 			viewHolder.Favorite.SetImageResource (item.Favorite ?
 				Resource.Drawable.ic_favorite_black_18dp :  Resource.Drawable.ic_favorite_outline_grey600_18dp);
 
-			viewHolder.Due.Visibility = item.DueDate != null ? ViewStates.Visible :ViewStates.Gone;
-			viewHolder.DueText.Visibility = item.DueDate != null ? ViewStates.Visible :ViewStates.Gone;
+			viewHolder.Due.Visibility = viewHolder.DueText.Visibility =
+				item.DueDate != null ? ViewStates.Visible :ViewStates.Gone;
 			viewHolder.DueText.Text = item.DueDate != null ? item.DueDate.Value.ToHumanReadable () : string.Empty;
 
-			viewHolder.Recurring.Visibility = item.Recurring != null ? ViewStates.Visible :ViewStates.Gone;
-			viewHolder.Recurring.Visibility = item.Recurring != null ? ViewStates.Visible :ViewStates.Gone;
+			viewHolder.Recurring.Visibility = viewHolder.RecurringText.Visibility =
+				item.Recurring != null ? ViewStates.Visible :ViewStates.Gone;
 			viewHolder.RecurringText.Text = item.Recurring != null ? item.Recurring.ToUpcomingRecurring () : string.Empty;
+
+			viewHolder.Divider.Visibility = viewHolder.MiscLayout.Visibility = 
+				(viewHolder.Due.Visibility == ViewStates.Gone && viewHolder.Recurring.Visibility == ViewStates.Gone) ?
+				ViewStates.Gone : ViewStates.Visible;
 
 			viewHolder.Favorite.Tag = new TagItem<ShoppingItem> { Item = item };
 			viewHolder.Favorite.SetOnClickListener (this);
@@ -101,6 +109,10 @@ namespace Cassini.ShopIt
 		public TextView Title { get; set; }
 
 		public ImageView Favorite { get; set; }
+
+		public View Divider { get; set; }
+
+		public RelativeLayout MiscLayout { get; set; }
 
 		public ImageView Due { get; set; }
 
