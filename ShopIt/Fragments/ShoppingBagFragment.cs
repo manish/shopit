@@ -68,7 +68,7 @@ namespace Cassini.ShopIt
 					var tag = view.Tag as ShoppingItemViewHolder;
 					switch (longTapOperations [args.Which]) {
 					case ItemOperations.Edit:
-						var editItemActivity = new Intent (Activity, typeof (NewItemActivity));
+						var editItemActivity = new Intent (Activity, typeof (AddEditItemActivity));
 						editItemActivity.PutExtra ("title", "Edit Item");
 						editItemActivity.PutExtra ("id", tag.Id);
 						StartActivity (editItemActivity);

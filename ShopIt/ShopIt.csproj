@@ -76,13 +76,13 @@
     <Compile Include="Models\ShoppingItem.cs" />
     <Compile Include="Models\ShoppingItemCategory.cs" />
     <Compile Include="Models\ShoppingItemManager.cs" />
-    <Compile Include="Activities\NewItemActivity.cs" />
     <Compile Include="Models\ShoppingItemCategoryManager.cs" />
     <Compile Include="Models\TagItem.cs" />
     <Compile Include="Models\HumanReadable.cs" />
     <Compile Include="Adapters\RepeatListAdapter.cs" />
     <Compile Include="Adapters\CategoriesListAdapter.cs" />
     <Compile Include="Fragments\UpcomingFragment.cs" />
+    <Compile Include="Activities\AddEditItemActivity.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -556,6 +556,11 @@
     <AndroidResource Include="Resources\Drawable-hdpi\ic_subject_grey600_18dp.png" />
     <AndroidResource Include="Resources\Drawable-hdpi\ic_subject_grey600_24dp.png" />
     <AndroidResource Include="Resources\Layout\upcoming_items.axml" />
+    <AndroidResource Include="Resources\Drawable-hdpi\ic_clear_white_24dp.png" />
+    <AndroidResource Include="Resources\Drawable-mdpi\ic_clear_white_24dp.png" />
+    <AndroidResource Include="Resources\Drawable-xhdpi\ic_clear_white_24dp.png" />
+    <AndroidResource Include="Resources\Drawable-xxhdpi\ic_clear_white_24dp.png" />
+    <AndroidResource Include="Resources\Drawable-xxxhdpi\ic_clear_white_24dp.png" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Properties\AndroidManifest.xml" />

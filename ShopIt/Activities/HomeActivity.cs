@@ -126,7 +126,7 @@ namespace Cassini.ShopIt
 		{
 			switch (item.ItemId) {
 			case Resource.Id.menu_add:
-				var newItemActivity = new Intent (this, typeof(NewItemActivity));
+				var newItemActivity = new Intent (this, typeof(AddEditItemActivity));
 				StartActivity (newItemActivity);
 				break;
 			}

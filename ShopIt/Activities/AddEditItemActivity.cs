@@ -16,8 +16,8 @@ using Android.Content.PM;
 
 namespace Cassini.ShopIt
 {
-	[Activity (Label = "New Shopping Item", MainLauncher = false, LaunchMode = LaunchMode.SingleTop, Icon = "@drawable/ic_launcher")]			
-	public class NewItemActivity : Android.Support.V7.App.ActionBarActivity, View.IOnClickListener
+	[Activity (MainLauncher = false, LaunchMode = LaunchMode.SingleTop, Icon = "@drawable/ic_launcher")]			
+	public class AddEditItemActivity : Android.Support.V7.App.ActionBarActivity, View.IOnClickListener
 	{
 		EditText newItemEntry;
 		IMenuItem okButton;
@@ -53,7 +53,7 @@ namespace Cassini.ShopIt
 			var toolbar = FindViewById<V7.Toolbar>(Resource.Id.new_item_toolbar);
 			if (toolbar != null) {
 				SetSupportActionBar(toolbar);
-				SupportActionBar.SetDisplayHomeAsUpEnabled(true);
+				SupportActionBar.SetHomeAsUpIndicator (Resource.Drawable.ic_clear_white_24dp);
 				SupportActionBar.SetHomeButtonEnabled (true);
 			}
 
