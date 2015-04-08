@@ -82,6 +82,7 @@
     <Compile Include="Models\HumanReadable.cs" />
     <Compile Include="Adapters\RepeatListAdapter.cs" />
     <Compile Include="Adapters\CategoriesListAdapter.cs" />
+    <Compile Include="Fragments\UpcomingFragment.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -554,6 +555,7 @@
     <AndroidResource Include="Resources\Drawable-mdpi\ic_subject_grey600_24dp.png" />
     <AndroidResource Include="Resources\Drawable-hdpi\ic_subject_grey600_18dp.png" />
     <AndroidResource Include="Resources\Drawable-hdpi\ic_subject_grey600_24dp.png" />
+    <AndroidResource Include="Resources\Layout\upcoming_items.axml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Properties\AndroidManifest.xml" />

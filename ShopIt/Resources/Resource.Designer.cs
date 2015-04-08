@@ -2842,14 +2842,14 @@ namespace Cassini.ShopIt
 			// aapt resource value: 0x7f07005b
 			public const int location_layout = 2131165275;
 			
-			// aapt resource value: 0x7f07006f
-			public const int menu_add = 2131165295;
+			// aapt resource value: 0x7f070072
+			public const int menu_add = 2131165298;
 			
-			// aapt resource value: 0x7f070070
-			public const int menu_done = 2131165296;
+			// aapt resource value: 0x7f070073
+			public const int menu_done = 2131165299;
 			
-			// aapt resource value: 0x7f070071
-			public const int menu_refresh = 2131165297;
+			// aapt resource value: 0x7f070074
+			public const int menu_refresh = 2131165300;
 			
 			// aapt resource value: 0x7f07000b
 			public const int middle = 2131165195;
@@ -2965,8 +2965,17 @@ namespace Cassini.ShopIt
 			// aapt resource value: 0x7f07006e
 			public const int tab_title = 2131165294;
 			
+			// aapt resource value: 0x7f070070
+			public const int textView1 = 2131165296;
+			
 			// aapt resource value: 0x7f070029
 			public const int title = 2131165225;
+			
+			// aapt resource value: 0x7f07006f
+			public const int today_layout = 2131165295;
+			
+			// aapt resource value: 0x7f070071
+			public const int today_list = 2131165297;
 			
 			// aapt resource value: 0x7f070062
 			public const int toolbar = 2131165282;
@@ -3107,6 +3116,9 @@ namespace Cassini.ShopIt
 			
 			// aapt resource value: 0x7f03001e
 			public const int toolbar = 2130903070;
+			
+			// aapt resource value: 0x7f03001f
+			public const int upcoming_items = 2130903071;
 			
 			static Layout()
 			{

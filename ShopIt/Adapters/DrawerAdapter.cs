@@ -23,7 +23,7 @@ namespace Cassini.ShopIt
 			new DrawerItem { Name = "Recurring Items", Icon = Resource.Drawable.ic_autorenew_grey600_24dp},
 			new DrawerItem { Name = "Categories", Icon = Resource.Drawable.ic_view_list_grey600_24dp},
 			new DrawerItem { Name = "Favorites", Icon = Resource.Drawable.ic_favorite_grey600_24dp},
-			new DrawerItem { Name = "Reminders", Icon = Resource.Drawable.ic_schedule_grey600_24dp}
+			new DrawerItem { Name = "Upcoming", Icon = Resource.Drawable.ic_schedule_grey600_24dp, ItemFragment = new UpcomingFragment ()}
 		};
 
 		public DrawerAdapter (Activity context)
