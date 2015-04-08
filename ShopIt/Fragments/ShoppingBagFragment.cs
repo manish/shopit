@@ -19,6 +19,23 @@ namespace Cassini.ShopIt
 	{
 		ShoppingBagAdapter shoppingAdapter;
 
+		enum ItemOperations
+		{
+			Edit,
+			Remove,
+			MarkAsDone
+		}
+
+		readonly Dictionary<ItemOperations, string> operationToString = new Dictionary<ItemOperations, string> {
+			{ ItemOperations.Edit, "Edit" },
+			{ ItemOperations.Remove, "Delete" },
+			{ ItemOperations.MarkAsDone, "Mark as done"}
+		};
+
+		readonly List<ItemOperations> longTapOperations = new List<ItemOperations> {
+			ItemOperations.MarkAsDone, ItemOperations.Edit, ItemOperations.Remove
+		};
+
 		public override void OnCreate (Bundle savedInstanceState)
 		{
 			base.OnCreate (savedInstanceState);
@@ -44,22 +61,33 @@ namespace Cassini.ShopIt
 
 		public bool OnItemLongClick (AdapterView parent, View view, int position, long id)
 		{
-			AlertDialog.Builder deleteConfirm = new AlertDialog.Builder (Activity);
-			deleteConfirm.SetMessage ("Delete this item?");
-			deleteConfirm.SetNegativeButton ("Cancel", (o, args) => {});
-			deleteConfirm.SetNeutralButton ("OK", (o, args) => shoppingAdapter.Remove (view));
-			deleteConfirm.Show ();
+			AlertDialog.Builder itemOptions = new AlertDialog.Builder (Activity);
+			itemOptions.SetAdapter (new ArrayAdapter (Activity, 
+				Android.Resource.Layout.SimpleListItem1, longTapOperations.Select (x => operationToString[x]).ToList ()),
+				(o, args) => {
+					var tag = view.Tag as ShoppingItemViewHolder;
+					switch (longTapOperations [args.Which]) {
+					case ItemOperations.Edit:
+						var editItemActivity = new Intent (Activity, typeof (NewItemActivity));
+						editItemActivity.PutExtra ("title", "Edit Item");
+						editItemActivity.PutExtra ("id", tag.Id);
+						StartActivity (editItemActivity);
+						break;
+					case ItemOperations.Remove:
+						shoppingAdapter.Remove (view);
+						break;
+					case ItemOperations.MarkAsDone:
+						ShoppingItemManager.Instance.MarkAsDone (tag.Id);
+						break;
+					}
+			});
+			itemOptions.Show ();
 			return true;
 		}
 
 		public void OnItemClick (AdapterView parent, View view, int position, long id)
 		{
-			var tag = view.Tag as ShoppingItemViewHolder;
-
-			var editItemActivity = new Intent (Activity, typeof (NewItemActivity));
-			editItemActivity.PutExtra ("title", "Edit Item");
-			editItemActivity.PutExtra ("id", tag.Id);
-			StartActivity (editItemActivity);
+			
 		}
 	}
 }

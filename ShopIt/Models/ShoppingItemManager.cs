@@ -8,16 +8,16 @@ namespace Cassini.ShopIt
 	class ShoppingItemManager
 	{
 		readonly List<ShoppingItem> items = new List<ShoppingItem> ();
-		readonly ReadOnlyCollection<ShoppingItem> itemsCollection;
+		ReadOnlyCollection<ShoppingItem> itemsCollection;
 
 		static ShoppingItemManager singleton;
 
 		protected ShoppingItemManager ()
 		{
-			itemsCollection = new ReadOnlyCollection<ShoppingItem> (items);
-			items.Add (new ShoppingItem { Title = "Tabasco Pepper Sauce", Favorite = true, Recurring = new RecurringItem () });
-			items.Add (new ShoppingItem { Title = "Justin's Honey Peanut Butter Blend all-natural (16 oz or 1 lb)", Favorite = false, Recurring = new RecurringItem () });
-			items.Add (new ShoppingItem { Title = "XBox 360 Controller", Favorite = true });
+			Add (new ShoppingItem { Title = "Tabasco Pepper Sauce", Favorite = true, Recurring = new RecurringItem () });
+			Add (new ShoppingItem { Title = "Justin's Honey Peanut Butter Blend all-natural (16 oz or 1 lb)", Favorite = false, Recurring = new RecurringItem () });
+			Add (new ShoppingItem { Title = "XBox 360 Controller", Favorite = true });
+			PopulateItems ();
 		}
 
 		public event EventHandler<ShoppingItem> Added;
@@ -45,13 +45,13 @@ namespace Cassini.ShopIt
 		public int Count
 		{
 			get {
-				return items.Count;
+				return itemsCollection.Count;
 			}
 		}
 
 		public ShoppingItem ItemAt (int position)
 		{
-			return items [position];
+			return itemsCollection [position];
 		}
 
 		public void Add (ShoppingItem item)
@@ -68,8 +68,19 @@ namespace Cassini.ShopIt
 			OnRemoved (item);
 		}
 
+		public void MarkAsDone (int id)
+		{
+			var item = items.FirstOrDefault (x => x.Id == id);
+			if (item != null) {
+				item.Active = false;
+				PopulateItems ();
+				OnChanged (item);
+			}
+		}
+
 		void OnAdded (ShoppingItem item)
 		{
+			PopulateItems ();
 			var handler = Added;
 			if (handler != null)
 				handler (this, item);
@@ -78,6 +89,7 @@ namespace Cassini.ShopIt
 
 		void OnRemoved (ShoppingItem item)
 		{
+			PopulateItems ();
 			var handler = Removed;
 			if (handler != null)
 				handler (this, item);
@@ -89,6 +101,11 @@ namespace Cassini.ShopIt
 			var handler = Changed;
 			if (handler != null)
 				handler (this, item);
+		}
+
+		void PopulateItems ()
+		{
+			itemsCollection = new ReadOnlyCollection<ShoppingItem> (items.Where (x => x.Active).ToList ());
 		}
 	}
 }

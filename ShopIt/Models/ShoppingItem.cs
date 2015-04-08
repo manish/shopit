@@ -10,6 +10,7 @@ namespace Cassini.ShopIt
 			Categories = new List<int> ();
 			Created = DateTime.Now;
 			Id = Created.GetHashCode ();
+			Active = true;
 		}
 
 		public void Save ()
@@ -22,6 +23,8 @@ namespace Cassini.ShopIt
 		public string Title { get; set; }
 
 		public bool Favorite { get; set; }
+
+		public bool Active { get; set; }
 
 		public List<int> Categories { get; set; }
 
