@@ -4,7 +4,7 @@ using Android.Content;
 using System.Collections.Generic;
 using Cassini.ShopIt.Shared;
 
-namespace Cassini.ShopIt
+namespace Cassini.ShopIt.Droid
 {
 	public class CategoriesListAdapter : BaseAdapter<ShoppingItemCategory>
 	{

@@ -5,7 +5,7 @@ using Android.Views;
 using System.Linq;
 using Cassini.ShopIt.Shared;
 
-namespace Cassini.ShopIt
+namespace Cassini.ShopIt.Droid
 {
 	public class ShoppingBagAdapter : BaseAdapter<ShoppingItem>, View.IOnClickListener
 	{

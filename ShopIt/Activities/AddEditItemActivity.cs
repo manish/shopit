@@ -16,7 +16,7 @@ using Android.Content.PM;
 
 using Cassini.ShopIt.Shared;
 
-namespace Cassini.ShopIt
+namespace Cassini.ShopIt.Droid
 {
 	[Activity (MainLauncher = false, LaunchMode = LaunchMode.SingleTop, Icon = "@drawable/ic_launcher")]			
 	public class AddEditItemActivity : Android.Support.V7.App.ActionBarActivity, View.IOnClickListener

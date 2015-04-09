@@ -13,7 +13,7 @@ using Android.Widget;
 using NavDrawer.Helpers;
 using Android.Content;
 
-namespace Cassini.ShopIt
+namespace Cassini.ShopIt.Droid
 {
 	[Activity (Label = "@string/app_name", MainLauncher = true, LaunchMode = LaunchMode.SingleTop, Icon = "@drawable/ic_launcher")]
 	public class HomeView : ActionBarActivity

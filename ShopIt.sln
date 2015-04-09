@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopIt", "ShopIt\ShopIt.csproj", "{0393D583-541C-43B7-8693-ABD7B6548E6F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopIt.Droid", "ShopIt\ShopIt.Droid.csproj", "{0393D583-541C-43B7-8693-ABD7B6548E6F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopIt.Shared", "ShopIt.Shared\ShopIt.Shared.csproj", "{9D06CBB9-B393-4732-960C-64AF3B13B88E}"
 EndProject

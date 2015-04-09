@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Android.Content;
 using Cassini.ShopIt.Shared;
 
-namespace Cassini.ShopIt
+namespace Cassini.ShopIt.Droid
 {
 	public class RepeatListAdapter : BaseAdapter<RecurringPeriod>
 	{

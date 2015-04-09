@@ -5,7 +5,7 @@ using Android.Widget;
 
 using Cassini.ShopIt.Shared;
 
-namespace Cassini.ShopIt
+namespace Cassini.ShopIt.Droid
 {
 	public class DisplayItemView : LinearLayout
 	{

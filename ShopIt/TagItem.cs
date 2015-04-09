@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Cassini.ShopIt
+namespace Cassini.ShopIt.Droid
 {
 	public class TagItem<T> : Java.Lang.Object
 	{

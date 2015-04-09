@@ -4,7 +4,7 @@ using Android.Widget;
 using Android.App;
 using System.Collections.Generic;
 
-namespace Cassini.ShopIt
+namespace Cassini.ShopIt.Droid
 {
 	public class DrawerItem
 	{
