@@ -14,6 +14,8 @@ using Android.Widget;
 using V7 = Android.Support.V7.Widget;
 using Android.Content.PM;
 
+using Cassini.ShopIt.Shared;
+
 namespace Cassini.ShopIt
 {
 	[Activity (MainLauncher = false, LaunchMode = LaunchMode.SingleTop, Icon = "@drawable/ic_launcher")]			

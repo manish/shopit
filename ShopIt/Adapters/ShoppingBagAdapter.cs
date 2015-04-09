@@ -3,6 +3,7 @@ using Android.Widget;
 using Android.App;
 using Android.Views;
 using System.Linq;
+using Cassini.ShopIt.Shared;
 
 namespace Cassini.ShopIt
 {

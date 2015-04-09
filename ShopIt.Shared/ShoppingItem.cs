@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Cassini.ShopIt
+namespace Cassini.ShopIt.Shared
 {
 	public class ShoppingItem
 	{

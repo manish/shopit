@@ -6,7 +6,7 @@
     <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <ProjectGuid>{9D06CBB9-B393-4732-960C-64AF3B13B88E}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>ShopIt.Shared</RootNamespace>
+    <RootNamespace>Cassini.ShopIt.Shared</RootNamespace>
     <AssemblyName>ShopIt.Shared</AssemblyName>
     <TargetFrameworkProfile>Profile78</TargetFrameworkProfile>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>

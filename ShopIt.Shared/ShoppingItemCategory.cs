@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Cassini.ShopIt
+namespace Cassini.ShopIt.Shared
 {
 	public class ShoppingItemCategory
 	{

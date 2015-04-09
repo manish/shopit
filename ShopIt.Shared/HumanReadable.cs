@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Cassini.ShopIt
+namespace Cassini.ShopIt.Shared
 {
 	public static class HumanReadable
 	{

@@ -2,6 +2,7 @@
 using Android.Widget;
 using Android.Content;
 using System.Collections.Generic;
+using Cassini.ShopIt.Shared;
 
 namespace Cassini.ShopIt
 {

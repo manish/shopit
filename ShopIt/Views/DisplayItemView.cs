@@ -3,6 +3,8 @@ using Android.Views;
 using Android.App;
 using Android.Widget;
 
+using Cassini.ShopIt.Shared;
+
 namespace Cassini.ShopIt
 {
 	public class DisplayItemView : LinearLayout

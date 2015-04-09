@@ -3,7 +3,7 @@ using System.Linq;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
-namespace Cassini.ShopIt
+namespace Cassini.ShopIt.Shared
 {
 	public class ShoppingItemCategoryManager
 	{
