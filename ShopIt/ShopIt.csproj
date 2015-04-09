@@ -73,17 +73,12 @@
     <Compile Include="Adapters\DrawerAdapter.cs" />
     <Compile Include="Fragments\ShoppingBagFragment.cs" />
     <Compile Include="Adapters\ShoppingBagAdapter.cs" />
-    <Compile Include="Models\ShoppingItem.cs" />
-    <Compile Include="Models\ShoppingItemCategory.cs" />
-    <Compile Include="Models\ShoppingItemManager.cs" />
-    <Compile Include="Models\ShoppingItemCategoryManager.cs" />
-    <Compile Include="Models\TagItem.cs" />
-    <Compile Include="Models\HumanReadable.cs" />
     <Compile Include="Adapters\RepeatListAdapter.cs" />
     <Compile Include="Adapters\CategoriesListAdapter.cs" />
     <Compile Include="Fragments\UpcomingFragment.cs" />
     <Compile Include="Activities\AddEditItemActivity.cs" />
     <Compile Include="Views\DisplayItemView.cs" />
+    <Compile Include="TagItem.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -603,5 +598,11 @@
     <Folder Include="Models\" />
     <Folder Include="Resources\Drawable-nodpi\" />
     <Folder Include="Views\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ShopIt.Shared\ShopIt.Shared.csproj">
+      <Project>{9D06CBB9-B393-4732-960C-64AF3B13B88E}</Project>
+      <Name>ShopIt.Shared</Name>
+    </ProjectReference>
   </ItemGroup>
 </Project>

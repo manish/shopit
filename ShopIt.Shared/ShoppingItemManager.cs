@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace Cassini.ShopIt
 {
-	class ShoppingItemManager
+	public class ShoppingItemManager
 	{
 		readonly List<ShoppingItem> items = new List<ShoppingItem> ();
 		ReadOnlyCollection<ShoppingItem> itemsCollection;

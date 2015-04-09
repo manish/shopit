@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopIt", "ShopIt\ShopIt.csproj", "{0393D583-541C-43B7-8693-ABD7B6548E6F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopIt.Shared", "ShopIt.Shared\ShopIt.Shared.csproj", "{9D06CBB9-B393-4732-960C-64AF3B13B88E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{0393D583-541C-43B7-8693-ABD7B6548E6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0393D583-541C-43B7-8693-ABD7B6548E6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0393D583-541C-43B7-8693-ABD7B6548E6F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D06CBB9-B393-4732-960C-64AF3B13B88E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D06CBB9-B393-4732-960C-64AF3B13B88E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D06CBB9-B393-4732-960C-64AF3B13B88E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D06CBB9-B393-4732-960C-64AF3B13B88E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
