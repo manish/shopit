@@ -66,7 +66,12 @@ namespace Cassini.ShopIt
 
 			viewHolder.Recurring.Visibility = viewHolder.RecurringText.Visibility =
 				item.Recurring != null ? ViewStates.Visible :ViewStates.Gone;
-			viewHolder.RecurringText.Text = item.Recurring != null ? item.Recurring.ToUpcomingRecurring () : string.Empty;
+			if (item.Recurring != null) {
+				var itemRecurringUpcoming = item.Recurring.ToUpcomingRecurring ();
+				viewHolder.RecurringText.Text = string.Format ("Next in {0} ({1})",
+					itemRecurringUpcoming.Item1, itemRecurringUpcoming.Item3);
+			} else
+				viewHolder.RecurringText.Text = string.Empty;
 
 			viewHolder.Divider.Visibility = viewHolder.MiscLayout.Visibility = 
 				(viewHolder.Due.Visibility == ViewStates.Gone && viewHolder.Recurring.Visibility == ViewStates.Gone) ?

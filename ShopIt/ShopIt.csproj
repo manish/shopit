@@ -83,6 +83,7 @@
     <Compile Include="Adapters\CategoriesListAdapter.cs" />
     <Compile Include="Fragments\UpcomingFragment.cs" />
     <Compile Include="Activities\AddEditItemActivity.cs" />
+    <Compile Include="Views\DisplayItemView.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -561,6 +562,7 @@
     <AndroidResource Include="Resources\Drawable-xhdpi\ic_clear_white_24dp.png" />
     <AndroidResource Include="Resources\Drawable-xxhdpi\ic_clear_white_24dp.png" />
     <AndroidResource Include="Resources\Drawable-xxxhdpi\ic_clear_white_24dp.png" />
+    <AndroidResource Include="Resources\Layout\view_item.axml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Properties\AndroidManifest.xml" />
@@ -600,5 +602,6 @@
     <Folder Include="Adapters\" />
     <Folder Include="Models\" />
     <Folder Include="Resources\Drawable-nodpi\" />
+    <Folder Include="Views\" />
   </ItemGroup>
 </Project>

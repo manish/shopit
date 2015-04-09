@@ -45,7 +45,7 @@ namespace Cassini.ShopIt
 			Title = Intent.GetStringExtra ("title") ?? Title;
 			var id = Intent.GetIntExtra ("id", default (int));
 			if (id != default (int))
-				itemBeingEdited = ShoppingItemManager.Instance.Items.FirstOrDefault (x => x.Id == id);
+				itemBeingEdited = ShoppingItemManager.Instance.ById (id);
 
 
 			// Create your application here

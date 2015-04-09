@@ -54,6 +54,11 @@ namespace Cassini.ShopIt
 			return itemsCollection [position];
 		}
 
+		public ShoppingItem ById (int id)
+		{
+			return ShoppingItemManager.Instance.Items.FirstOrDefault (x => x.Id == id);
+		}
+
 		public void Add (ShoppingItem item)
 		{
 			items.Add (item);
@@ -62,7 +67,7 @@ namespace Cassini.ShopIt
 
 		public void Remove (int id)
 		{
-			var item = ShoppingItemManager.Instance.Items.FirstOrDefault (x => x.Id == id);
+			var item = ById (id);
 			if (item != null)
 				items.Remove (item);
 			OnRemoved (item);

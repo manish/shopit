@@ -73,7 +73,7 @@ namespace Cassini.ShopIt
 			return periodToString.TryGetValue (period, out value) ? value : ToRecurringPeriodSpecificDays (period);
 		}
 
-		public static string ToUpcomingRecurring (this RecurringItem item)
+		public static Tuple<string, DateTime, string> ToUpcomingRecurring (this RecurringItem item)
 		{
 			TimeSpan timeSpan;
 			var first = item.First;
@@ -92,7 +92,7 @@ namespace Cassini.ShopIt
 				occurrenceFreq = Enum.IsDefined (typeof(RecurringPeriod), item.Period) ? item.Period.ToString () :
 					string.Join (", ", days.Select (x => x.ToString ()));
 			}
-			return string.Format("Next in {0} ({1})", nextOccurrence.ToHumanReadable (), occurrenceFreq);
+			return new Tuple <string, DateTime, string> (nextOccurrence.ToHumanReadable (), nextOccurrence, occurrenceFreq);
 		}
 
 		public static string ToRecurringPeriodSpecificDays (RecurringPeriod period)

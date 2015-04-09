@@ -47,6 +47,14 @@
     <item name="android:layout_marginBottom">6dp</item>
     <item name="android:background">?android:attr/listDivider</item>
    </style>
+ <style name="invisible_divider">
+    <item name="android:layout_width">match_parent</item>
+    <item name="android:layout_height">1dp</item>
+    <item name="android:layout_marginLeft">0dp</item>
+    <item name="android:layout_marginRight">0dp</item>
+    <item name="android:layout_marginTop">6dp</item>
+    <item name="android:layout_marginBottom">6dp</item>
+  </style>
    
 
 </resources>

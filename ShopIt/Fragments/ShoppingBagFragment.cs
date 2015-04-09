@@ -87,7 +87,19 @@ namespace Cassini.ShopIt
 
 		public void OnItemClick (AdapterView parent, View view, int position, long id)
 		{
-			
+			var tag = view.Tag as ShoppingItemViewHolder;
+			var showDialog = new AlertDialog.Builder (Activity);
+			var detailsView = new DisplayItemView (Activity, tag.Id);
+			showDialog.SetView (detailsView);
+			var dialog = showDialog.Create ();
+			dialog.Show ();
+
+			var markAsDoneButton = detailsView.FindViewById<Button> (Resource.Id.view_item_mark_as_done);
+			markAsDoneButton.Touch += (sender, e) => {
+				if (e.Event.Action == MotionEventActions.Down) {
+					dialog.Dismiss ();
+				}
+			};
 		}
 	}
 }
