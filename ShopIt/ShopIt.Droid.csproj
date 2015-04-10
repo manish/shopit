@@ -562,6 +562,7 @@
     <AndroidResource Include="Resources\Drawable-xxhdpi\ic_clear_white_24dp.png" />
     <AndroidResource Include="Resources\Drawable-xxxhdpi\ic_clear_white_24dp.png" />
     <AndroidResource Include="Resources\Layout\view_item.axml" />
+    <AndroidResource Include="Resources\Layout\main_page.axml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Properties\AndroidManifest.xml" />

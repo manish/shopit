@@ -2686,11 +2686,11 @@ namespace Cassini.ShopIt.Droid
 			// aapt resource value: 0x7f0b0023
 			public const int activity_chooser_view_content = 2131427363;
 			
-			// aapt resource value: 0x7f0b0047
-			public const int add_item_category_layout = 2131427399;
+			// aapt resource value: 0x7f0b004b
+			public const int add_item_category_layout = 2131427403;
 			
-			// aapt resource value: 0x7f0b004a
-			public const int add_new_category_icon = 2131427402;
+			// aapt resource value: 0x7f0b004e
+			public const int add_new_category_icon = 2131427406;
 			
 			// aapt resource value: 0x7f0b000f
 			public const int always = 2131427343;
@@ -2701,11 +2701,11 @@ namespace Cassini.ShopIt.Droid
 			// aapt resource value: 0x7f0b001e
 			public const int bold = 2131427358;
 			
-			// aapt resource value: 0x7f0b0064
-			public const int branding_image = 2131427428;
+			// aapt resource value: 0x7f0b0068
+			public const int branding_image = 2131427432;
 			
-			// aapt resource value: 0x7f0b0049
-			public const int category_text = 2131427401;
+			// aapt resource value: 0x7f0b004d
+			public const int category_text = 2131427405;
 			
 			// aapt resource value: 0x7f0b002b
 			public const int checkbox = 2131427371;
@@ -2713,8 +2713,8 @@ namespace Cassini.ShopIt.Droid
 			// aapt resource value: 0x7f0b0011
 			public const int collapseActionView = 2131427345;
 			
-			// aapt resource value: 0x7f0b0063
-			public const int content_frame = 2131427427;
+			// aapt resource value: 0x7f0b0067
+			public const int content_frame = 2131427431;
 			
 			// aapt resource value: 0x7f0b0031
 			public const int decor_content_parent = 2131427377;
@@ -2734,41 +2734,44 @@ namespace Cassini.ShopIt.Droid
 			// aapt resource value: 0x7f0b0043
 			public const int drawer_item_name = 2131427395;
 			
-			// aapt resource value: 0x7f0b0061
-			public const int drawer_layout = 2131427425;
+			// aapt resource value: 0x7f0b0065
+			public const int drawer_layout = 2131427429;
 			
 			// aapt resource value: 0x7f0b0013
 			public const int dropdown = 2131427347;
 			
-			// aapt resource value: 0x7f0b0052
-			public const int due_date = 2131427410;
-			
-			// aapt resource value: 0x7f0b004d
-			public const int due_date_layout = 2131427405;
-			
-			// aapt resource value: 0x7f0b0050
-			public const int due_date_switch = 2131427408;
-			
-			// aapt resource value: 0x7f0b004f
-			public const int due_date_text = 2131427407;
+			// aapt resource value: 0x7f0b0056
+			public const int due_date = 2131427414;
 			
 			// aapt resource value: 0x7f0b0051
-			public const int due_item_layout = 2131427409;
+			public const int due_date_layout = 2131427409;
+			
+			// aapt resource value: 0x7f0b0054
+			public const int due_date_switch = 2131427412;
 			
 			// aapt resource value: 0x7f0b0053
-			public const int due_time = 2131427411;
+			public const int due_date_text = 2131427411;
 			
-			// aapt resource value: 0x7f0b004e
-			public const int edit_item_due_icon = 2131427406;
+			// aapt resource value: 0x7f0b0055
+			public const int due_item_layout = 2131427413;
+			
+			// aapt resource value: 0x7f0b0057
+			public const int due_time = 2131427415;
+			
+			// aapt resource value: 0x7f0b0052
+			public const int edit_item_due_icon = 2131427410;
 			
 			// aapt resource value: 0x7f0b0035
 			public const int edit_query = 2131427381;
 			
+			// aapt resource value: 0x7f0b0045
+			public const int empty_list_show = 2131427397;
+			
 			// aapt resource value: 0x7f0b000c
 			public const int end = 2131427340;
 			
-			// aapt resource value: 0x7f0b004c
-			public const int existing_categories = 2131427404;
+			// aapt resource value: 0x7f0b0050
+			public const int existing_categories = 2131427408;
 			
 			// aapt resource value: 0x7f0b0024
 			public const int expand_activities_button = 2131427364;
@@ -2776,8 +2779,8 @@ namespace Cassini.ShopIt.Droid
 			// aapt resource value: 0x7f0b002a
 			public const int expanded_menu = 2131427370;
 			
-			// aapt resource value: 0x7f0b0069
-			public const int first_divider = 2131427433;
+			// aapt resource value: 0x7f0b006d
+			public const int first_divider = 2131427437;
 			
 			// aapt resource value: 0x7f0b0019
 			public const int home = 2131427353;
@@ -2797,44 +2800,44 @@ namespace Cassini.ShopIt.Droid
 			// aapt resource value: 0x7f0b001f
 			public const int italic = 2131427359;
 			
-			// aapt resource value: 0x7f0b0048
-			public const int item_category_icon = 2131427400;
+			// aapt resource value: 0x7f0b004c
+			public const int item_category_icon = 2131427404;
 			
-			// aapt resource value: 0x7f0b006b
-			public const int item_due_icon = 2131427435;
+			// aapt resource value: 0x7f0b006f
+			public const int item_due_icon = 2131427439;
+			
+			// aapt resource value: 0x7f0b0070
+			public const int item_due_text = 2131427440;
 			
 			// aapt resource value: 0x7f0b006c
-			public const int item_due_text = 2131427436;
-			
-			// aapt resource value: 0x7f0b0068
-			public const int item_fav_icon = 2131427432;
-			
-			// aapt resource value: 0x7f0b005c
-			public const int item_location_icon = 2131427420;
-			
-			// aapt resource value: 0x7f0b005d
-			public const int item_location_text = 2131427421;
-			
-			// aapt resource value: 0x7f0b006a
-			public const int item_misc_layout = 2131427434;
-			
-			// aapt resource value: 0x7f0b005f
-			public const int item_notes_icon = 2131427423;
-			
-			// aapt resource value: 0x7f0b005e
-			public const int item_notes_layout = 2131427422;
+			public const int item_fav_icon = 2131427436;
 			
 			// aapt resource value: 0x7f0b0060
-			public const int item_notes_text = 2131427424;
+			public const int item_location_icon = 2131427424;
 			
-			// aapt resource value: 0x7f0b0055
-			public const int item_recurring__icon = 2131427413;
+			// aapt resource value: 0x7f0b0061
+			public const int item_location_text = 2131427425;
 			
-			// aapt resource value: 0x7f0b008a
-			public const int last_divider = 2131427466;
+			// aapt resource value: 0x7f0b006e
+			public const int item_misc_layout = 2131427438;
 			
-			// aapt resource value: 0x7f0b0065
-			public const int left_drawer = 2131427429;
+			// aapt resource value: 0x7f0b0063
+			public const int item_notes_icon = 2131427427;
+			
+			// aapt resource value: 0x7f0b0062
+			public const int item_notes_layout = 2131427426;
+			
+			// aapt resource value: 0x7f0b0064
+			public const int item_notes_text = 2131427428;
+			
+			// aapt resource value: 0x7f0b0059
+			public const int item_recurring__icon = 2131427417;
+			
+			// aapt resource value: 0x7f0b008e
+			public const int last_divider = 2131427470;
+			
+			// aapt resource value: 0x7f0b0069
+			public const int left_drawer = 2131427433;
 			
 			// aapt resource value: 0x7f0b0041
 			public const int linearLayout1 = 2131427393;
@@ -2845,17 +2848,26 @@ namespace Cassini.ShopIt.Droid
 			// aapt resource value: 0x7f0b0027
 			public const int list_item = 2131427367;
 			
-			// aapt resource value: 0x7f0b005b
-			public const int location_layout = 2131427419;
+			// aapt resource value: 0x7f0b005f
+			public const int location_layout = 2131427423;
 			
-			// aapt resource value: 0x7f0b008c
-			public const int menu_add = 2131427468;
+			// aapt resource value: 0x7f0b0046
+			public const int main_add_icon = 2131427398;
 			
-			// aapt resource value: 0x7f0b008d
-			public const int menu_done = 2131427469;
+			// aapt resource value: 0x7f0b0047
+			public const int main_add_text = 2131427399;
 			
-			// aapt resource value: 0x7f0b008e
-			public const int menu_refresh = 2131427470;
+			// aapt resource value: 0x7f0b0044
+			public const int main_list_items = 2131427396;
+			
+			// aapt resource value: 0x7f0b0090
+			public const int menu_add = 2131427472;
+			
+			// aapt resource value: 0x7f0b0091
+			public const int menu_done = 2131427473;
+			
+			// aapt resource value: 0x7f0b0092
+			public const int menu_refresh = 2131427474;
 			
 			// aapt resource value: 0x7f0b000b
 			public const int middle = 2131427339;
@@ -2863,11 +2875,11 @@ namespace Cassini.ShopIt.Droid
 			// aapt resource value: 0x7f0b000d
 			public const int never = 2131427341;
 			
-			// aapt resource value: 0x7f0b0046
-			public const int new_item_entry = 2131427398;
+			// aapt resource value: 0x7f0b004a
+			public const int new_item_entry = 2131427402;
 			
-			// aapt resource value: 0x7f0b0044
-			public const int new_item_toolbar = 2131427396;
+			// aapt resource value: 0x7f0b0048
+			public const int new_item_toolbar = 2131427400;
 			
 			// aapt resource value: 0x7f0b0003
 			public const int none = 2131427331;
@@ -2884,32 +2896,32 @@ namespace Cassini.ShopIt.Droid
 			// aapt resource value: 0x7f0b002d
 			public const int radio = 2131427373;
 			
-			// aapt resource value: 0x7f0b006d
-			public const int recurring_icon = 2131427437;
+			// aapt resource value: 0x7f0b0071
+			public const int recurring_icon = 2131427441;
+			
+			// aapt resource value: 0x7f0b005c
+			public const int recurring_item_layout = 2131427420;
 			
 			// aapt resource value: 0x7f0b0058
-			public const int recurring_item_layout = 2131427416;
+			public const int recurring_layout = 2131427416;
 			
-			// aapt resource value: 0x7f0b0054
-			public const int recurring_layout = 2131427412;
+			// aapt resource value: 0x7f0b005e
+			public const int recurring_repeat = 2131427422;
+			
+			// aapt resource value: 0x7f0b005d
+			public const int recurring_start_date = 2131427421;
+			
+			// aapt resource value: 0x7f0b005b
+			public const int recurring_switch = 2131427419;
 			
 			// aapt resource value: 0x7f0b005a
-			public const int recurring_repeat = 2131427418;
+			public const int recurring_text = 2131427418;
 			
-			// aapt resource value: 0x7f0b0059
-			public const int recurring_start_date = 2131427417;
+			// aapt resource value: 0x7f0b006a
+			public const int relativeLayout1 = 2131427434;
 			
-			// aapt resource value: 0x7f0b0057
-			public const int recurring_switch = 2131427415;
-			
-			// aapt resource value: 0x7f0b0056
-			public const int recurring_text = 2131427414;
-			
-			// aapt resource value: 0x7f0b0066
-			public const int relativeLayout1 = 2131427430;
-			
-			// aapt resource value: 0x7f0b0045
-			public const int scrollView1 = 2131427397;
+			// aapt resource value: 0x7f0b0049
+			public const int scrollView1 = 2131427401;
 			
 			// aapt resource value: 0x7f0b0037
 			public const int search_badge = 2131427383;
@@ -2941,11 +2953,11 @@ namespace Cassini.ShopIt.Droid
 			// aapt resource value: 0x7f0b0040
 			public const int search_voice_btn = 2131427392;
 			
-			// aapt resource value: 0x7f0b004b
-			public const int select_item_category_layout = 2131427403;
+			// aapt resource value: 0x7f0b004f
+			public const int select_item_category_layout = 2131427407;
 			
-			// aapt resource value: 0x7f0b0067
-			public const int shopping_item_title = 2131427431;
+			// aapt resource value: 0x7f0b006b
+			public const int shopping_item_title = 2131427435;
 			
 			// aapt resource value: 0x7f0b002c
 			public const int shortcut = 2131427372;
@@ -2968,23 +2980,23 @@ namespace Cassini.ShopIt.Droid
 			// aapt resource value: 0x7f0b0002
 			public const int tabMode = 2131427330;
 			
-			// aapt resource value: 0x7f0b006e
-			public const int tab_title = 2131427438;
+			// aapt resource value: 0x7f0b0072
+			public const int tab_title = 2131427442;
 			
-			// aapt resource value: 0x7f0b0070
-			public const int textView1 = 2131427440;
+			// aapt resource value: 0x7f0b0074
+			public const int textView1 = 2131427444;
 			
 			// aapt resource value: 0x7f0b0029
 			public const int title = 2131427369;
 			
-			// aapt resource value: 0x7f0b006f
-			public const int today_layout = 2131427439;
+			// aapt resource value: 0x7f0b0073
+			public const int today_layout = 2131427443;
 			
-			// aapt resource value: 0x7f0b0071
-			public const int today_list = 2131427441;
+			// aapt resource value: 0x7f0b0075
+			public const int today_list = 2131427445;
 			
-			// aapt resource value: 0x7f0b0062
-			public const int toolbar = 2131427426;
+			// aapt resource value: 0x7f0b0066
+			public const int toolbar = 2131427430;
 			
 			// aapt resource value: 0x7f0b001d
 			public const int up = 2131427357;
@@ -2992,80 +3004,80 @@ namespace Cassini.ShopIt.Droid
 			// aapt resource value: 0x7f0b0004
 			public const int useLogo = 2131427332;
 			
-			// aapt resource value: 0x7f0b0078
-			public const int view_item_due_date = 2131427448;
-			
-			// aapt resource value: 0x7f0b0077
-			public const int view_item_due_date_layout = 2131427447;
-			
-			// aapt resource value: 0x7f0b0075
-			public const int view_item_due_date_text = 2131427445;
-			
-			// aapt resource value: 0x7f0b0076
-			public const int view_item_due_date_value = 2131427446;
-			
-			// aapt resource value: 0x7f0b0073
-			public const int view_item_due_details_layout = 2131427443;
-			
-			// aapt resource value: 0x7f0b007a
-			public const int view_item_due_divider = 2131427450;
-			
-			// aapt resource value: 0x7f0b0074
-			public const int view_item_due_icon = 2131427444;
-			
-			// aapt resource value: 0x7f0b0079
-			public const int view_item_due_time = 2131427449;
-			
-			// aapt resource value: 0x7f0b0086
-			public const int view_item_location_divider = 2131427462;
-			
-			// aapt resource value: 0x7f0b0084
-			public const int view_item_location_icon = 2131427460;
-			
-			// aapt resource value: 0x7f0b0083
-			public const int view_item_location_layout = 2131427459;
-			
-			// aapt resource value: 0x7f0b0085
-			public const int view_item_location_value = 2131427461;
-			
-			// aapt resource value: 0x7f0b008b
-			public const int view_item_mark_as_done = 2131427467;
-			
-			// aapt resource value: 0x7f0b0072
-			public const int view_item_name = 2131427442;
-			
-			// aapt resource value: 0x7f0b0088
-			public const int view_item_notes_icon = 2131427464;
-			
-			// aapt resource value: 0x7f0b0087
-			public const int view_item_notes_layout = 2131427463;
-			
-			// aapt resource value: 0x7f0b0089
-			public const int view_item_notes_value = 2131427465;
-			
-			// aapt resource value: 0x7f0b0082
-			public const int view_item_repeat_divider = 2131427458;
-			
-			// aapt resource value: 0x7f0b007f
-			public const int view_item_repeating_details_layout = 2131427455;
-			
 			// aapt resource value: 0x7f0b007c
-			public const int view_item_repeating_icon = 2131427452;
+			public const int view_item_due_date = 2131427452;
 			
 			// aapt resource value: 0x7f0b007b
-			public const int view_item_repeating_layout = 2131427451;
+			public const int view_item_due_date_layout = 2131427451;
 			
-			// aapt resource value: 0x7f0b0081
-			public const int view_item_repeating_repeat = 2131427457;
+			// aapt resource value: 0x7f0b0079
+			public const int view_item_due_date_text = 2131427449;
 			
-			// aapt resource value: 0x7f0b0080
-			public const int view_item_repeating_start_date = 2131427456;
+			// aapt resource value: 0x7f0b007a
+			public const int view_item_due_date_value = 2131427450;
 			
-			// aapt resource value: 0x7f0b007d
-			public const int view_item_repeating_text = 2131427453;
+			// aapt resource value: 0x7f0b0077
+			public const int view_item_due_details_layout = 2131427447;
 			
 			// aapt resource value: 0x7f0b007e
-			public const int view_item_repeating_value = 2131427454;
+			public const int view_item_due_divider = 2131427454;
+			
+			// aapt resource value: 0x7f0b0078
+			public const int view_item_due_icon = 2131427448;
+			
+			// aapt resource value: 0x7f0b007d
+			public const int view_item_due_time = 2131427453;
+			
+			// aapt resource value: 0x7f0b008a
+			public const int view_item_location_divider = 2131427466;
+			
+			// aapt resource value: 0x7f0b0088
+			public const int view_item_location_icon = 2131427464;
+			
+			// aapt resource value: 0x7f0b0087
+			public const int view_item_location_layout = 2131427463;
+			
+			// aapt resource value: 0x7f0b0089
+			public const int view_item_location_value = 2131427465;
+			
+			// aapt resource value: 0x7f0b008f
+			public const int view_item_mark_as_done = 2131427471;
+			
+			// aapt resource value: 0x7f0b0076
+			public const int view_item_name = 2131427446;
+			
+			// aapt resource value: 0x7f0b008c
+			public const int view_item_notes_icon = 2131427468;
+			
+			// aapt resource value: 0x7f0b008b
+			public const int view_item_notes_layout = 2131427467;
+			
+			// aapt resource value: 0x7f0b008d
+			public const int view_item_notes_value = 2131427469;
+			
+			// aapt resource value: 0x7f0b0086
+			public const int view_item_repeat_divider = 2131427462;
+			
+			// aapt resource value: 0x7f0b0083
+			public const int view_item_repeating_details_layout = 2131427459;
+			
+			// aapt resource value: 0x7f0b0080
+			public const int view_item_repeating_icon = 2131427456;
+			
+			// aapt resource value: 0x7f0b007f
+			public const int view_item_repeating_layout = 2131427455;
+			
+			// aapt resource value: 0x7f0b0085
+			public const int view_item_repeating_repeat = 2131427461;
+			
+			// aapt resource value: 0x7f0b0084
+			public const int view_item_repeating_start_date = 2131427460;
+			
+			// aapt resource value: 0x7f0b0081
+			public const int view_item_repeating_text = 2131427457;
+			
+			// aapt resource value: 0x7f0b0082
+			public const int view_item_repeating_value = 2131427458;
 			
 			// aapt resource value: 0x7f0b0010
 			public const int withText = 2131427344;
@@ -3181,28 +3193,31 @@ namespace Cassini.ShopIt.Droid
 			public const int item_menu = 2130903064;
 			
 			// aapt resource value: 0x7f030019
-			public const int new_item = 2130903065;
+			public const int main_page = 2130903065;
 			
 			// aapt resource value: 0x7f03001a
-			public const int page_home_view = 2130903066;
+			public const int new_item = 2130903066;
 			
 			// aapt resource value: 0x7f03001b
-			public const int shopping_item = 2130903067;
+			public const int page_home_view = 2130903067;
 			
 			// aapt resource value: 0x7f03001c
-			public const int support_simple_spinner_dropdown_item = 2130903068;
+			public const int shopping_item = 2130903068;
 			
 			// aapt resource value: 0x7f03001d
-			public const int tab = 2130903069;
+			public const int support_simple_spinner_dropdown_item = 2130903069;
 			
 			// aapt resource value: 0x7f03001e
-			public const int toolbar = 2130903070;
+			public const int tab = 2130903070;
 			
 			// aapt resource value: 0x7f03001f
-			public const int upcoming_items = 2130903071;
+			public const int toolbar = 2130903071;
 			
 			// aapt resource value: 0x7f030020
-			public const int view_item = 2130903072;
+			public const int upcoming_items = 2130903072;
+			
+			// aapt resource value: 0x7f030021
+			public const int view_item = 2130903073;
 			
 			static Layout()
 			{

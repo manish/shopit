@@ -17,8 +17,23 @@ using Cassini.ShopIt.Shared;
 
 namespace Cassini.ShopIt.Droid
 {
-	public class ShoppingBagFragment : V4.ListFragment, AdapterView.IOnItemLongClickListener, AdapterView.IOnItemClickListener
+	public class ShoppingBagFragment : V4.Fragment, AdapterView.IOnItemLongClickListener, AdapterView.IOnItemClickListener
 	{
+		class ShoppingBagContentObserver : Android.Database.DataSetObserver
+		{
+			readonly ShoppingBagFragment fragment;
+
+			public ShoppingBagContentObserver (ShoppingBagFragment shoppingFragment)
+			{
+				fragment = shoppingFragment;
+			}
+
+			public override void OnChanged ()
+			{
+				fragment.HandleVisibility ();
+			}
+		}
+
 		ShoppingBagAdapter shoppingAdapter;
 
 		enum ItemOperations
@@ -27,6 +42,9 @@ namespace Cassini.ShopIt.Droid
 			Remove,
 			MarkAsDone
 		}
+
+		ListView nonEmptyListView;
+		RelativeLayout emptyLayout;
 
 		readonly Dictionary<ItemOperations, string> operationToString = new Dictionary<ItemOperations, string> {
 			{ ItemOperations.Edit, "Edit" },
@@ -37,28 +55,35 @@ namespace Cassini.ShopIt.Droid
 		readonly List<ItemOperations> longTapOperations = new List<ItemOperations> {
 			ItemOperations.MarkAsDone, ItemOperations.Edit, ItemOperations.Remove
 		};
-
-		public override void OnCreate (Bundle savedInstanceState)
-		{
-			base.OnCreate (savedInstanceState);
-
-			// Create your fragment here
-			ListAdapter = shoppingAdapter = new ShoppingBagAdapter (Activity);
-		}
-
 		public override View OnCreateView (LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
 		{
-			// Use this to return your custom view for this Fragment
-			// return inflater.Inflate(Resource.Layout.YourFragment, container, false);
-
-			return base.OnCreateView (inflater, container, savedInstanceState);
+			return inflater.Inflate(Resource.Layout.main_page, container, false);
 		}
 
 		public override void OnResume ()
 		{
-			ListView.OnItemLongClickListener = this;
-			ListView.OnItemClickListener = this;
+			nonEmptyListView = View.FindViewById<ListView> (Resource.Id.main_list_items);
+			nonEmptyListView.Adapter = shoppingAdapter = new ShoppingBagAdapter (Activity);
+
+			emptyLayout = View.FindViewById<RelativeLayout> (Resource.Id.empty_list_show);
+			var newButton = View.FindViewById<ImageView> (Resource.Id.main_add_icon);
+			newButton.Touch += (sender, e) => {
+				if (e.Event.Action == MotionEventActions.Down)
+					StartActivity (new Intent (Activity, typeof (AddEditItemActivity)));
+			};
+
+			HandleVisibility ();
+			shoppingAdapter.RegisterDataSetObserver (new ShoppingBagContentObserver (this));
+
+			nonEmptyListView.OnItemLongClickListener = this;
+			nonEmptyListView.OnItemClickListener = this;
 			base.OnResume ();
+		}
+
+		public void HandleVisibility ()
+		{
+			emptyLayout.Visibility = shoppingAdapter.Count == 0 ? ViewStates.Visible : ViewStates.Gone;
+			nonEmptyListView.Visibility = shoppingAdapter.Count == 0 ? ViewStates.Gone : ViewStates.Visible;
 		}
 
 		public bool OnItemLongClick (AdapterView parent, View view, int position, long id)
