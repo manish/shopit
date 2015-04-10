@@ -1,4 +1,5 @@
 ﻿using System;
+using SQLite;
 
 namespace Cassini.ShopIt.Shared
 {
@@ -9,6 +10,7 @@ namespace Cassini.ShopIt.Shared
 			Id = DateTime.Now.GetHashCode ();
 		}
 
+		[PrimaryKey]
 		public int Id { get; set; }
 
 		public string Name { get; set; }

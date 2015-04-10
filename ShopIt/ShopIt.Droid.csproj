@@ -588,6 +588,7 @@
     </AndroidResource>
     <AndroidResource Include="Resources\Values-land\integers.xml" />
   </ItemGroup>
+  <Import Project="..\ShopIt.Shared\ShopIt.Shared.projitems" Label="Shared" Condition="Exists('..\ShopIt.Shared\ShopIt.Shared.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
      Other similar extension points exist, see Microsoft.Common.targets.
@@ -603,11 +604,5 @@
     <Folder Include="Models\" />
     <Folder Include="Resources\Drawable-nodpi\" />
     <Folder Include="Views\" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ShopIt.Shared\ShopIt.Shared.csproj">
-      <Project>{9D06CBB9-B393-4732-960C-64AF3B13B88E}</Project>
-      <Name>ShopIt.Shared</Name>
-    </ProjectReference>
   </ItemGroup>
 </Project>

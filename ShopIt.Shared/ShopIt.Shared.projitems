@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>{64012383-90DA-478B-8509-9E31872A5F69}</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Cassini.ShopIt.Shared</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)HumanReadable.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ShoppingItem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ShoppingItemCategory.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ShoppingItemCategoryManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ShoppingItemManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SQLite.cs" />
+  </ItemGroup>
+</Project>
