@@ -5,6 +5,26 @@ using System.Linq;
 
 namespace Cassini.ShopIt.Shared
 {
+	public enum ChangeType
+	{
+		Added,
+		Removed,
+		Archieve
+	}
+
+	public class ShoppingItemManagerChangedEventArgs : EventArgs
+	{
+		public ShoppingItemManagerChangedEventArgs (ChangeType type, ShoppingItem item)
+		{
+			ChangeType = type;
+			Item = item;
+		}
+
+		public ChangeType ChangeType { get; private set; }
+
+		public ShoppingItem Item { get; private set; }
+	}
+
 	public class ShoppingItemManager
 	{
 		readonly List<ShoppingItem> items = new List<ShoppingItem> ();
@@ -20,11 +40,7 @@ namespace Cassini.ShopIt.Shared
 			PopulateItems ();
 		}
 
-		public event EventHandler<ShoppingItem> Added;
-
-		public event EventHandler<ShoppingItem> Removed;
-
-		public event EventHandler<ShoppingItem> Changed;
+		public event EventHandler<ShoppingItemManagerChangedEventArgs> Changed;
 
 		public static ShoppingItemManager Instance
 		{
@@ -62,7 +78,7 @@ namespace Cassini.ShopIt.Shared
 		public void Add (ShoppingItem item)
 		{
 			items.Add (item);
-			OnAdded (item);
+			OnChanged (ChangeType.Added, item);
 		}
 
 		public void Remove (int id)
@@ -70,7 +86,7 @@ namespace Cassini.ShopIt.Shared
 			var item = ById (id);
 			if (item != null)
 				items.Remove (item);
-			OnRemoved (item);
+			OnChanged (ChangeType.Removed, item);
 		}
 
 		public void MarkAsDone (int id)
@@ -79,33 +95,16 @@ namespace Cassini.ShopIt.Shared
 			if (item != null) {
 				item.Active = false;
 				PopulateItems ();
-				OnChanged (item);
+				OnChanged (ChangeType.Archieve, item);
 			}
 		}
 
-		void OnAdded (ShoppingItem item)
+		void OnChanged (ChangeType changeType, ShoppingItem item)
 		{
 			PopulateItems ();
-			var handler = Added;
-			if (handler != null)
-				handler (this, item);
-			OnChanged (item);
-		}
-
-		void OnRemoved (ShoppingItem item)
-		{
-			PopulateItems ();
-			var handler = Removed;
-			if (handler != null)
-				handler (this, item);
-			OnChanged (item);
-		}
-
-		void OnChanged (ShoppingItem item)
-		{
 			var handler = Changed;
 			if (handler != null)
-				handler (this, item);
+				handler (this, new ShoppingItemManagerChangedEventArgs (changeType, item));
 		}
 
 		void PopulateItems ()
