@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using SQLite;
 
 namespace Cassini.ShopIt.Shared
 {
@@ -19,7 +18,6 @@ namespace Cassini.ShopIt.Shared
 			LastModified = DateTime.Now;
 		}
 
-		[PrimaryKey]
 		public int Id { get; private set; }
 
 		public string Title { get; set; }
