@@ -108,7 +108,7 @@ namespace Cassini.ShopIt.Droid
 					newCategoryDialog.SetNeutralButton ("OK", (o, args) =>  {
 						var categoryName = newCategoryEditText.Text.Trim ();
 						if (!string.IsNullOrEmpty (categoryName)) {
-							var newCategoryId = ShoppingItemCategoryManager.Instance.Add (newCategoryEditText.Text);
+							var newCategoryId = AndroidStorageManager.CategoryInstance.Add (newCategoryEditText.Text);
 							categoryAdapter.NotifyNewCategory (newCategoryId);
 						}
 						else

@@ -8,9 +8,12 @@ namespace Cassini.ShopIt.Droid
 	{
 		public static ShoppingItemManager Instance { get; private set; }
 
+		public static ShoppingItemCategoryManager CategoryInstance { get; private set; }
+
 		public static void Init ()
 		{
 			Instance = ShoppingItemManager.FromPath (FileSystem.Current.LocalStorage);
+			CategoryInstance = ShoppingItemCategoryManager.FromPath (FileSystem.Current.LocalStorage);
 		}
 	}
 }

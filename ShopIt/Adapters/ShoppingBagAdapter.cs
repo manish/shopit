@@ -15,7 +15,7 @@ namespace Cassini.ShopIt.Droid
 		{
 			this.context = context;
 			AndroidStorageManager.Instance.Changed += (sender, e) => NotifyDataSetChanged ();
-			ShoppingItemCategoryManager.Instance.Changed += (sender, e) => NotifyDataSetChanged ();
+			AndroidStorageManager.CategoryInstance.Changed += (sender, e) => NotifyDataSetChanged ();
 		}
 
 		public void Remove (View view)

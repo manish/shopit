@@ -57,7 +57,7 @@ namespace Cassini.ShopIt.Droid
 
 		public override int Count {
 			get {
-				return ShoppingItemCategoryManager.Instance.Items.Count;
+				return AndroidStorageManager.CategoryInstance.Items.Count;
 			}
 		}
 
@@ -67,7 +67,7 @@ namespace Cassini.ShopIt.Droid
 
 		public override ShoppingItemCategory this [int index] {
 			get {
-				return ShoppingItemCategoryManager.Instance.Items [index];
+				return AndroidStorageManager.CategoryInstance.Items [index];
 			}
 		}
 
