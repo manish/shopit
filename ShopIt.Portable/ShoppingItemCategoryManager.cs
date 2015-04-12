@@ -12,7 +12,6 @@ namespace Cassini.ShopIt.Shared
 	{
 		List<ShoppingItemCategory> items = new List<ShoppingItemCategory> ();
 		readonly ReadOnlyCollection<ShoppingItemCategory> itemsCollection;
-		static ShoppingItemCategoryManager singleton;
 
 		const string itemsFolderPath = "shopit";
 		const string itemsFilePath = "shopping_categories.json";
@@ -46,6 +45,12 @@ namespace Cassini.ShopIt.Shared
 		void Save ()
 		{
 			Task.Factory.StartNew (async () => await storageFile.WriteAllTextAsync (JsonConvert.SerializeObject (items)));
+		}
+
+		public void Reset ()
+		{
+			items.Clear ();
+			Save ();
 		}
 
 		public event EventHandler<ShoppingItemCategory> Added;

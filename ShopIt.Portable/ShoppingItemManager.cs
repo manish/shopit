@@ -13,7 +13,8 @@ namespace Cassini.ShopIt.Shared
 		Loaded,
 		Added,
 		Removed,
-		Archieve
+		Archieve,
+		RemovedAll
 	}
 
 	public class ShoppingItemManagerChangedEventArgs : EventArgs
@@ -66,6 +67,13 @@ namespace Cassini.ShopIt.Shared
 		public void Save ()
 		{
 			Task.Factory.StartNew (async () => await storageFile.WriteAllTextAsync (JsonConvert.SerializeObject (items)));
+		}
+
+		public void Reset ()
+		{
+			items.Clear ();
+			Save ();
+			OnChanged (ChangeType.RemovedAll, null);
 		}
 
 		public ReadOnlyCollection<ShoppingItem> Items

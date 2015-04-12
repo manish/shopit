@@ -570,6 +570,11 @@
     <AndroidResource Include="Resources\Drawable-xxxhdpi\ic_clear_white_24dp.png" />
     <AndroidResource Include="Resources\Layout\view_item.axml" />
     <AndroidResource Include="Resources\Layout\main_page.axml" />
+    <AndroidResource Include="Resources\Drawable-hdpi\ic_delete_grey600_24dp.png" />
+    <AndroidResource Include="Resources\Drawable-mdpi\ic_delete_grey600_24dp.png" />
+    <AndroidResource Include="Resources\Drawable-xhdpi\ic_delete_grey600_24dp.png" />
+    <AndroidResource Include="Resources\Drawable-xxhdpi\ic_delete_grey600_24dp.png" />
+    <AndroidResource Include="Resources\Drawable-xxxhdpi\ic_delete_grey600_24dp.png" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Properties\AndroidManifest.xml" />

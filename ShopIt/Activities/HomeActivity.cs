@@ -86,12 +86,21 @@ namespace Cassini.ShopIt.Droid
 
 		private void ListItemClicked (int position)
 		{
-			Android.Support.V4.App.Fragment fragment = adapter [position].ItemFragment;
+			var drawerItem = adapter [position];
+			Android.Support.V4.App.Fragment fragment = drawerItem.ItemFragment;
 
 			if (fragment != null) {
 				SupportFragmentManager.BeginTransaction ()
 				.Replace (Resource.Id.content_frame, fragment)
 				.Commit ();
+			}
+
+			if (drawerItem.Action == DrawerAction.DeleteAll) {
+				AlertDialog.Builder alertDeleteAll = new AlertDialog.Builder (this);
+				alertDeleteAll.SetMessage ("Remove all items?");
+				alertDeleteAll.SetNegativeButton ("No", (s,e) => { });
+				alertDeleteAll.SetNeutralButton ("Yes", (s,e) => AndroidStorageManager.Instance.Reset ());
+				alertDeleteAll.Show ();
 			}
 
 			drawerListView.SetItemChecked (position, true);
