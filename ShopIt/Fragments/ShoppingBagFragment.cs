@@ -82,8 +82,10 @@ namespace Cassini.ShopIt.Droid
 
 		public void HandleVisibility ()
 		{
-			emptyLayout.Visibility = shoppingAdapter.Count == 0 ? ViewStates.Visible : ViewStates.Gone;
-			nonEmptyListView.Visibility = shoppingAdapter.Count == 0 ? ViewStates.Gone : ViewStates.Visible;
+			Activity.RunOnUiThread (() => {
+				emptyLayout.Visibility = shoppingAdapter.Count == 0 ? ViewStates.Visible : ViewStates.Gone;
+				nonEmptyListView.Visibility = shoppingAdapter.Count == 0 ? ViewStates.Gone : ViewStates.Visible;
+			});
 		}
 
 		public bool OnItemLongClick (AdapterView parent, View view, int position, long id)
@@ -104,7 +106,7 @@ namespace Cassini.ShopIt.Droid
 						shoppingAdapter.Remove (view);
 						break;
 					case ItemOperations.MarkAsDone:
-						ShoppingItemManager.Instance.MarkAsDone (tag.Id);
+						AndroidStorageManager.Instance.MarkAsDone (tag.Id);
 						break;
 					}
 			});

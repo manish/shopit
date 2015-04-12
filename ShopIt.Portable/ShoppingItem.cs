@@ -13,9 +13,14 @@ namespace Cassini.ShopIt.Shared
 			Active = true;
 		}
 
+		public event EventHandler Changed;
+
 		public void Save ()
 		{
 			LastModified = DateTime.Now;
+			var handler = Changed;
+			if (handler != null)
+				handler (this, EventArgs.Empty);
 		}
 
 		public int Id { get; private set; }

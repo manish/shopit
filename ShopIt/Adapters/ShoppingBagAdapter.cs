@@ -14,14 +14,14 @@ namespace Cassini.ShopIt.Droid
 		public ShoppingBagAdapter (Activity context)
 		{
 			this.context = context;
-			ShoppingItemManager.Instance.Changed += (sender, e) => NotifyDataSetChanged ();
+			AndroidStorageManager.Instance.Changed += (sender, e) => NotifyDataSetChanged ();
 			ShoppingItemCategoryManager.Instance.Changed += (sender, e) => NotifyDataSetChanged ();
 		}
 
 		public void Remove (View view)
 		{
 			var tag = view.Tag as ShoppingItemViewHolder;
-			ShoppingItemManager.Instance.Remove (tag.Id);
+			AndroidStorageManager.Instance.Remove (tag.Id);
 		}
 
 		#region implemented abstract members of BaseAdapter
@@ -85,13 +85,13 @@ namespace Cassini.ShopIt.Droid
 
 		public override int Count {
 			get {
-				return ShoppingItemManager.Instance.Count;
+				return AndroidStorageManager.Instance.Count;
 			}
 		}
 
 		public override ShoppingItem this [int index] {
 			get {
-				return ShoppingItemManager.Instance.ItemAt (index);
+				return AndroidStorageManager.Instance.ItemAt (index);
 			}
 		}
 

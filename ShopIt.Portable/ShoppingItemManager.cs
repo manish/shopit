@@ -2,11 +2,15 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Threading.Tasks;
+using PCLStorage;
+using Newtonsoft.Json;
 
 namespace Cassini.ShopIt.Shared
 {
 	public enum ChangeType
 	{
+		Loaded,
 		Added,
 		Removed,
 		Archieve
@@ -27,28 +31,41 @@ namespace Cassini.ShopIt.Shared
 
 	public class ShoppingItemManager
 	{
-		readonly List<ShoppingItem> items = new List<ShoppingItem> ();
+		List<ShoppingItem> items = new List<ShoppingItem> ();
 		ReadOnlyCollection<ShoppingItem> itemsCollection;
 
-		static ShoppingItemManager singleton;
+		const string itemsFolderPath = "shopit";
+		const string itemsFilePath = "shopping_items.json";
+		IFile storageFile;
 
-		protected ShoppingItemManager ()
+		protected ShoppingItemManager (IFolder path)
 		{
-			Add (new ShoppingItem { Title = "Tabasco Pepper Sauce", Favorite = true, Recurring = new RecurringItem () });
-			Add (new ShoppingItem { Title = "Justin's Honey Peanut Butter Blend all-natural (16 oz or 1 lb)", Favorite = false, Recurring = new RecurringItem () });
-			Add (new ShoppingItem { Title = "XBox 360 Controller", Favorite = true });
-			PopulateItems ();
+			Task.Factory.StartNew (async () => {
+				items = await LoadData (path) ?? items;
+				OnChanged (ChangeType.Loaded, null);
+			});
 		}
 
 		public event EventHandler<ShoppingItemManagerChangedEventArgs> Changed;
 
-		public static ShoppingItemManager Instance
+		public static ShoppingItemManager FromPath (IFolder path)
 		{
-			get {
-				if (singleton == null)
-					singleton = new ShoppingItemManager ();
-				return singleton;
-			}
+			return new ShoppingItemManager (path);
+		}
+
+		async Task<List<ShoppingItem>> LoadData (IFolder rootFolder)
+		{
+			IFolder folder = await rootFolder.CreateFolderAsync(itemsFolderPath, CreationCollisionOption.OpenIfExists);
+
+			storageFile = await folder.CreateFileAsync(itemsFilePath, CreationCollisionOption.OpenIfExists);
+			var data = await storageFile.ReadAllTextAsync ();
+
+			return JsonConvert.DeserializeObject <List<ShoppingItem>> (data);
+		}
+
+		public void Save ()
+		{
+			Task.Factory.StartNew (async () => await storageFile.WriteAllTextAsync (JsonConvert.SerializeObject (items)));
 		}
 
 		public ReadOnlyCollection<ShoppingItem> Items
@@ -61,7 +78,7 @@ namespace Cassini.ShopIt.Shared
 		public int Count
 		{
 			get {
-				return itemsCollection.Count;
+				return itemsCollection != null ? itemsCollection.Count : 0;
 			}
 		}
 
@@ -72,7 +89,7 @@ namespace Cassini.ShopIt.Shared
 
 		public ShoppingItem ById (int id)
 		{
-			return ShoppingItemManager.Instance.Items.FirstOrDefault (x => x.Id == id);
+			return items.FirstOrDefault (x => x.Id == id);
 		}
 
 		public void Add (ShoppingItem item)

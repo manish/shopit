@@ -15,12 +15,12 @@ namespace Cassini.ShopIt.Droid
 			var detailsView = inflater.Inflate (Resource.Layout.view_item, null);
 			AddView (detailsView);
 
-			var shoppingItem = ShoppingItemManager.Instance.ById (id);
+			var shoppingItem = AndroidStorageManager.Instance.ById (id);
 
 			var markAsDoneButton = detailsView.FindViewById<Button> (Resource.Id.view_item_mark_as_done);
 			markAsDoneButton.Touch += (sender, e) => {
 				if (e.Event.Action == MotionEventActions.Down)
-					ShoppingItemManager.Instance.MarkAsDone (id);
+					AndroidStorageManager.Instance.MarkAsDone (id);
 			};
 			var viewItemName = detailsView.FindViewById<TextView> (Resource.Id.view_item_name);
 			viewItemName.Text = shoppingItem.Title;

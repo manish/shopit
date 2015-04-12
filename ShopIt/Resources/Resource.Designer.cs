@@ -1004,6 +1004,8 @@ namespace Cassini.ShopIt.Droid
 			global::com.refractored.Resource.Styleable.ViewStubCompat_android_id = global::Cassini.ShopIt.Droid.Resource.Styleable.ViewStubCompat_android_id;
 			global::com.refractored.Resource.Styleable.ViewStubCompat_android_inflatedId = global::Cassini.ShopIt.Droid.Resource.Styleable.ViewStubCompat_android_inflatedId;
 			global::com.refractored.Resource.Styleable.ViewStubCompat_android_layout = global::Cassini.ShopIt.Droid.Resource.Styleable.ViewStubCompat_android_layout;
+			global::PCLStorage.Resource.String.ApplicationName = global::Cassini.ShopIt.Droid.Resource.String.ApplicationName;
+			global::PCLStorage.Resource.String.Hello = global::Cassini.ShopIt.Droid.Resource.String.Hello;
 		}
 		
 		public partial class Animation
@@ -3253,6 +3255,9 @@ namespace Cassini.ShopIt.Droid
 		
 		public partial class String
 		{
+			
+			// aapt resource value: 0x7f080017
+			public const int ApplicationName = 2131230743;
 			
 			// aapt resource value: 0x7f080000
 			public const int Hello = 2131230720;

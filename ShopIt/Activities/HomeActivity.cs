@@ -38,6 +38,8 @@ namespace Cassini.ShopIt.Droid
 				SupportActionBar.SetHomeButtonEnabled (true);
 			}
 
+			AndroidStorageManager.Init ();
+
 			title = drawerTitle = Title;
 			adapter = new DrawerAdapter (this);
 

@@ -47,7 +47,7 @@ namespace Cassini.ShopIt.Droid
 			Title = Intent.GetStringExtra ("title") ?? Title;
 			var id = Intent.GetIntExtra ("id", default (int));
 			if (id != default (int))
-				itemBeingEdited = ShoppingItemManager.Instance.ById (id);
+				itemBeingEdited = AndroidStorageManager.Instance.ById (id);
 
 
 			// Create your application here
@@ -269,9 +269,12 @@ namespace Cassini.ShopIt.Droid
 
 				item.Location = itemLocationText.Text.Trim ();
 				item.Notes = itemNotesText.Text.Trim ();
+				item.Save ();
 
 				if (itemBeingEdited == null)
-					ShoppingItemManager.Instance.Add (item);
+					AndroidStorageManager.Instance.Add (item);
+
+				AndroidStorageManager.Instance.Save ();
 				
 				StartActivity (typeof(HomeView));
 			}
