@@ -5,32 +5,33 @@ using NUnit.Framework;
 using Xamarin.UITest;
 using Xamarin.UITest.Android;
 using Xamarin.UITest.Queries;
+using System.Collections.Generic;
 
 namespace ShopIt.Droid.UITests
 {
 	[TestFixture]
-	public class Tests
+	public class Tests : UITestBase
 	{
-		AndroidApp app;
-
-		[SetUp]
-		public void BeforeEachTest ()
-		{
-			// TODO: If the Android app being tested is included in the solution then open
-			// the Unit Tests window, right click Test Apps, select Add App Project
-			// and select the app projects that should be tested.
-			app = ConfigureApp
-				.Android
-			// TODO: Update this path to point to your Android app and uncomment the
-			// code if the app is not included in the solution.
-			//.ApkFile ("../../../Android/bin/Debug/UITestsAndroid.apk")
-				.StartApp ();
-		}
-
 		[Test]
 		public void AppLaunches ()
 		{
-			app.Screenshot ("First screen.");
+			App.Screenshot ("First screen.");
+		}
+
+		[Test]
+		public void TestClearItems ()
+		{
+			ClearItems ();
+		}
+
+		[Test]
+		public void AddNewItems ()
+		{
+			ClearItems ();
+
+			var items = new List<string> { "Tabasco Sauce", "Blue Bottle Coffee" };
+			items.ForEach (AddNewItem);
+			Assert.AreEqual (App.Query (c => c.Id ("shopping_item_relativelayout")).Length, items.Count);
 		}
 	}
 }

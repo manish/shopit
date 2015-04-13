@@ -2922,9 +2922,6 @@ namespace Cassini.ShopIt.Droid
 			// aapt resource value: 0x7f0b005a
 			public const int recurring_text = 2131427418;
 			
-			// aapt resource value: 0x7f0b006a
-			public const int relativeLayout1 = 2131427434;
-			
 			// aapt resource value: 0x7f0b0049
 			public const int scrollView1 = 2131427401;
 			
@@ -2960,6 +2957,9 @@ namespace Cassini.ShopIt.Droid
 			
 			// aapt resource value: 0x7f0b004f
 			public const int select_item_category_layout = 2131427407;
+			
+			// aapt resource value: 0x7f0b006a
+			public const int shopping_item_relativelayout = 2131427434;
 			
 			// aapt resource value: 0x7f0b006b
 			public const int shopping_item_title = 2131427435;
