@@ -33,6 +33,21 @@ namespace ShopIt.Droid.UITests
 			items.ForEach (AddNewItem);
 			Assert.AreEqual (App.Query (c => c.Id ("shopping_item_relativelayout")).Length, items.Count);
 		}
+
+		[Test]
+		public void AddAndRemoveItems ()
+		{
+			ClearItems ();
+
+			var items = new List<string> { "Tabasco Sauce", "Blue Bottle Coffee" };
+			items.ForEach (AddNewItem);
+			Assert.AreEqual (App.Query (c => c.Id ("shopping_item_relativelayout")).Length, items.Count);
+
+			App.TouchAndHold (c => c.Id ("shopping_item_relativelayout").Index (1));
+			App.Tap (c => c.Marked ("Delete"));
+
+			Assert.AreEqual (App.Query (c => c.Id ("shopping_item_relativelayout")).Length, items.Count - 1);
+		}
 	}
 }
 
